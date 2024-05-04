@@ -1,0 +1,2629 @@
+{
+  "data": [
+    {
+      "id": "academic",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/academic"
+      },
+      "attributes": {
+        "name": "Academic",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/academic/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/academic/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/academic/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/academic/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "advertisement",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/advertisement"
+      },
+      "attributes": {
+        "name": "Advertisement",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/advertisement/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/advertisement/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/advertisement/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/advertisement/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "ai",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ai"
+      },
+      "attributes": {
+        "name": "AI",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ai/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ai/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ai/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ai/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "alliance",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/alliance"
+      },
+      "attributes": {
+        "name": "Alliance",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/alliance/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/alliance/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/alliance/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/alliance/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "ambush",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ambush"
+      },
+      "attributes": {
+        "name": "Ambush",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ambush/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ambush/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ambush/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ambush/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "ap",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ap"
+      },
+      "attributes": {
+        "name": "AP",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ap/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ap/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ap/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ap/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "barrier",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/barrier"
+      },
+      "attributes": {
+        "name": "Barrier",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/barrier/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/barrier/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/barrier/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/barrier/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "beanstalk",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/beanstalk"
+      },
+      "attributes": {
+        "name": "Beanstalk",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/beanstalk/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/beanstalk/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/beanstalk/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/beanstalk/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "bioroid",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bioroid"
+      },
+      "attributes": {
+        "name": "Bioroid",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bioroid/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bioroid/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bioroid/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bioroid/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "black_ops",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/black_ops"
+      },
+      "attributes": {
+        "name": "Black Ops",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/black_ops/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/black_ops/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/black_ops/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/black_ops/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "bomb",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bomb"
+      },
+      "attributes": {
+        "name": "Bomb",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bomb/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bomb/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bomb/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/bomb/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "caissa",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/caissa"
+      },
+      "attributes": {
+        "name": "Caïssa",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/caissa/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/caissa/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/caissa/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/caissa/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "cast",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cast"
+      },
+      "attributes": {
+        "name": "Cast",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cast/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cast/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cast/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cast/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "character",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/character"
+      },
+      "attributes": {
+        "name": "Character",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/character/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/character/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/character/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/character/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "chip",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/chip"
+      },
+      "attributes": {
+        "name": "Chip",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/chip/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/chip/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/chip/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/chip/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "clan",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clan"
+      },
+      "attributes": {
+        "name": "Clan",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clan/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clan/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clan/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clan/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "clone",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clone"
+      },
+      "attributes": {
+        "name": "Clone",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clone/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clone/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clone/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/clone/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "cloud",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cloud"
+      },
+      "attributes": {
+        "name": "Cloud",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cloud/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cloud/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cloud/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cloud/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "code_gate",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/code_gate"
+      },
+      "attributes": {
+        "name": "Code Gate",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/code_gate/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/code_gate/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/code_gate/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/code_gate/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "companion",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/companion"
+      },
+      "attributes": {
+        "name": "Companion",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/companion/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/companion/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/companion/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/companion/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "condition",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/condition"
+      },
+      "attributes": {
+        "name": "Condition",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/condition/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/condition/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/condition/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/condition/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "connection",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/connection"
+      },
+      "attributes": {
+        "name": "Connection",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/connection/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/connection/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/connection/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/connection/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "console",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/console"
+      },
+      "attributes": {
+        "name": "Console",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/console/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/console/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/console/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/console/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "consumer_grade",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/consumer_grade"
+      },
+      "attributes": {
+        "name": "Consumer-grade",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/consumer_grade/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/consumer_grade/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/consumer_grade/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/consumer_grade/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "corp",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corp"
+      },
+      "attributes": {
+        "name": "Corp",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corp/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corp/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corp/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corp/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "corporation",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corporation"
+      },
+      "attributes": {
+        "name": "Corporation",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corporation/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corporation/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corporation/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/corporation/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "current",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/current"
+      },
+      "attributes": {
+        "name": "Current",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/current/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/current/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/current/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/current/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "cybernetic",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cybernetic"
+      },
+      "attributes": {
+        "name": "Cybernetic",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cybernetic/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cybernetic/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cybernetic/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cybernetic/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "cyborg",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cyborg"
+      },
+      "attributes": {
+        "name": "Cyborg",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cyborg/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cyborg/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cyborg/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/cyborg/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "daemon",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/daemon"
+      },
+      "attributes": {
+        "name": "Daemon",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/daemon/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/daemon/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/daemon/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/daemon/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "decoder",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/decoder"
+      },
+      "attributes": {
+        "name": "Decoder",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/decoder/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/decoder/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/decoder/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/decoder/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "deep_net",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deep_net"
+      },
+      "attributes": {
+        "name": "Deep Net",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deep_net/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deep_net/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deep_net/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deep_net/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "deflector",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deflector"
+      },
+      "attributes": {
+        "name": "Deflector",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deflector/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deflector/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deflector/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deflector/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "department",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/department"
+      },
+      "attributes": {
+        "name": "Department",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/department/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/department/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/department/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/department/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "destroyer",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/destroyer"
+      },
+      "attributes": {
+        "name": "Destroyer",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/destroyer/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/destroyer/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/destroyer/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/destroyer/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "deva",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deva"
+      },
+      "attributes": {
+        "name": "Deva",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deva/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deva/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deva/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/deva/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "digital",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/digital"
+      },
+      "attributes": {
+        "name": "Digital",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/digital/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/digital/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/digital/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/digital/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "directive",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/directive"
+      },
+      "attributes": {
+        "name": "Directive",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/directive/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/directive/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/directive/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/directive/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "division",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/division"
+      },
+      "attributes": {
+        "name": "Division",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/division/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/division/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/division/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/division/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "double",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/double"
+      },
+      "attributes": {
+        "name": "Double",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/double/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/double/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/double/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/double/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "enforcer",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/enforcer"
+      },
+      "attributes": {
+        "name": "Enforcer",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/enforcer/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/enforcer/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/enforcer/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/enforcer/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "executive",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/executive"
+      },
+      "attributes": {
+        "name": "Executive",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/executive/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/executive/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/executive/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/executive/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "expansion",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expansion"
+      },
+      "attributes": {
+        "name": "Expansion",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expansion/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expansion/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expansion/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expansion/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "expendable",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expendable"
+      },
+      "attributes": {
+        "name": "Expendable",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expendable/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expendable/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expendable/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/expendable/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "facility",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/facility"
+      },
+      "attributes": {
+        "name": "Facility",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/facility/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/facility/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/facility/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/facility/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "fracter",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/fracter"
+      },
+      "attributes": {
+        "name": "Fracter",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/fracter/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/fracter/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/fracter/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/fracter/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "g_mod",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/g_mod"
+      },
+      "attributes": {
+        "name": "G-mod",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/g_mod/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/g_mod/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/g_mod/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/g_mod/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "gear",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gear"
+      },
+      "attributes": {
+        "name": "Gear",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gear/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gear/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gear/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gear/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "genetics",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/genetics"
+      },
+      "attributes": {
+        "name": "Genetics",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/genetics/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/genetics/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/genetics/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/genetics/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "government",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/government"
+      },
+      "attributes": {
+        "name": "Government",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/government/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/government/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/government/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/government/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "grail",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/grail"
+      },
+      "attributes": {
+        "name": "Grail",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/grail/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/grail/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/grail/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/grail/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "gray_ops",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gray_ops"
+      },
+      "attributes": {
+        "name": "Gray Ops",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gray_ops/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gray_ops/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gray_ops/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/gray_ops/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "harmonic",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/harmonic"
+      },
+      "attributes": {
+        "name": "Harmonic",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/harmonic/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/harmonic/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/harmonic/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/harmonic/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "hostile",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/hostile"
+      },
+      "attributes": {
+        "name": "Hostile",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/hostile/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/hostile/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/hostile/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/hostile/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "icebreaker",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/icebreaker"
+      },
+      "attributes": {
+        "name": "Icebreaker",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/icebreaker/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/icebreaker/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/icebreaker/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/icebreaker/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "illicit",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/illicit"
+      },
+      "attributes": {
+        "name": "Illicit",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/illicit/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/illicit/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/illicit/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/illicit/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "industrial",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/industrial"
+      },
+      "attributes": {
+        "name": "Industrial",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/industrial/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/industrial/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/industrial/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/industrial/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "initiative",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/initiative"
+      },
+      "attributes": {
+        "name": "Initiative",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/initiative/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/initiative/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/initiative/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/initiative/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "job",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/job"
+      },
+      "attributes": {
+        "name": "Job",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/job/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/job/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/job/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/job/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "killer",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/killer"
+      },
+      "attributes": {
+        "name": "Killer",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/killer/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/killer/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/killer/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/killer/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "link",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/link"
+      },
+      "attributes": {
+        "name": "Link",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/link/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/link/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/link/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/link/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "location",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/location"
+      },
+      "attributes": {
+        "name": "Location",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/location/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/location/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/location/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/location/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "lockdown",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/lockdown"
+      },
+      "attributes": {
+        "name": "Lockdown",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/lockdown/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/lockdown/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/lockdown/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/lockdown/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "mandate",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mandate"
+      },
+      "attributes": {
+        "name": "Mandate",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mandate/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mandate/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mandate/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mandate/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "megacorp",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/megacorp"
+      },
+      "attributes": {
+        "name": "Megacorp",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/megacorp/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/megacorp/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/megacorp/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/megacorp/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "mod",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mod"
+      },
+      "attributes": {
+        "name": "Mod",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mod/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mod/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mod/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mod/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "morph",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/morph"
+      },
+      "attributes": {
+        "name": "Morph",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/morph/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/morph/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/morph/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/morph/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "mythic",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mythic"
+      },
+      "attributes": {
+        "name": "Mythic",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mythic/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mythic/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mythic/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/mythic/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "natural",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/natural"
+      },
+      "attributes": {
+        "name": "Natural",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/natural/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/natural/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/natural/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/natural/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "next",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/next"
+      },
+      "attributes": {
+        "name": "NEXT",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/next/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/next/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/next/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/next/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "observer",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/observer"
+      },
+      "attributes": {
+        "name": "Observer",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/observer/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/observer/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/observer/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/observer/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "off_site",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/off_site"
+      },
+      "attributes": {
+        "name": "Off-site",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/off_site/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/off_site/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/off_site/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/off_site/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "orgcrime",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/orgcrime"
+      },
+      "attributes": {
+        "name": "Orgcrime",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/orgcrime/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/orgcrime/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/orgcrime/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/orgcrime/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "police_department",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/police_department"
+      },
+      "attributes": {
+        "name": "Police Department",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/police_department/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/police_department/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/police_department/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/police_department/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "political",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/political"
+      },
+      "attributes": {
+        "name": "Political",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/political/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/political/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/political/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/political/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "priority",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/priority"
+      },
+      "attributes": {
+        "name": "Priority",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/priority/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/priority/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/priority/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/priority/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "psi",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/psi"
+      },
+      "attributes": {
+        "name": "Psi",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/psi/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/psi/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/psi/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/psi/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "public",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/public"
+      },
+      "attributes": {
+        "name": "Public",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/public/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/public/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/public/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/public/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "region",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/region"
+      },
+      "attributes": {
+        "name": "Region",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/region/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/region/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/region/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/region/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "remote",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/remote"
+      },
+      "attributes": {
+        "name": "Remote",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/remote/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/remote/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/remote/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/remote/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "reprisal",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/reprisal"
+      },
+      "attributes": {
+        "name": "Reprisal",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/reprisal/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/reprisal/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/reprisal/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/reprisal/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "research",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/research"
+      },
+      "attributes": {
+        "name": "Research",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/research/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/research/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/research/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/research/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "ritzy",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ritzy"
+      },
+      "attributes": {
+        "name": "Ritzy",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ritzy/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ritzy/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ritzy/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/ritzy/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "run",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/run"
+      },
+      "attributes": {
+        "name": "Run",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/run/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/run/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/run/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/run/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "sabotage",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sabotage"
+      },
+      "attributes": {
+        "name": "Sabotage",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sabotage/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sabotage/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sabotage/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sabotage/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "security",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security"
+      },
+      "attributes": {
+        "name": "Security",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "security_protocol",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security_protocol"
+      },
+      "attributes": {
+        "name": "Security Protocol",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security_protocol/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security_protocol/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security_protocol/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/security_protocol/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "seedy",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/seedy"
+      },
+      "attributes": {
+        "name": "Seedy",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/seedy/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/seedy/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/seedy/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/seedy/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "sensie",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sensie"
+      },
+      "attributes": {
+        "name": "Sensie",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sensie/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sensie/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sensie/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sensie/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "sentry",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sentry"
+      },
+      "attributes": {
+        "name": "Sentry",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sentry/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sentry/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sentry/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sentry/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "source",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/source"
+      },
+      "attributes": {
+        "name": "Source",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/source/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/source/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/source/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/source/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "stealth",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/stealth"
+      },
+      "attributes": {
+        "name": "Stealth",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/stealth/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/stealth/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/stealth/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/stealth/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "subsidiary",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/subsidiary"
+      },
+      "attributes": {
+        "name": "Subsidiary",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/subsidiary/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/subsidiary/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/subsidiary/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/subsidiary/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "sysop",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sysop"
+      },
+      "attributes": {
+        "name": "Sysop",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sysop/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sysop/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sysop/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/sysop/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "terminal",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/terminal"
+      },
+      "attributes": {
+        "name": "Terminal",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/terminal/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/terminal/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/terminal/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/terminal/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "tracer",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/tracer"
+      },
+      "attributes": {
+        "name": "Tracer",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/tracer/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/tracer/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/tracer/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/tracer/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "transaction",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/transaction"
+      },
+      "attributes": {
+        "name": "Transaction",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/transaction/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/transaction/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/transaction/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/transaction/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "trap",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trap"
+      },
+      "attributes": {
+        "name": "Trap",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trap/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trap/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trap/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trap/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "triple",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/triple"
+      },
+      "attributes": {
+        "name": "Triple",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/triple/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/triple/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/triple/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/triple/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "trojan",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trojan"
+      },
+      "attributes": {
+        "name": "Trojan",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trojan/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trojan/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trojan/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/trojan/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "unorthodox",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/unorthodox"
+      },
+      "attributes": {
+        "name": "Unorthodox",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/unorthodox/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/unorthodox/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/unorthodox/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/unorthodox/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "vehicle",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/vehicle"
+      },
+      "attributes": {
+        "name": "Vehicle",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/vehicle/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/vehicle/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/vehicle/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/vehicle/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "virtual",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virtual"
+      },
+      "attributes": {
+        "name": "Virtual",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virtual/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virtual/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virtual/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virtual/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "virus",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virus"
+      },
+      "attributes": {
+        "name": "Virus",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virus/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virus/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virus/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/virus/printings"
+          }
+        }
+      }
+    },
+    {
+      "id": "weapon",
+      "type": "card_subtypes",
+      "links": {
+        "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/weapon"
+      },
+      "attributes": {
+        "name": "Weapon",
+        "updated_at": "2024-04-13T16:55:21.095Z"
+      },
+      "relationships": {
+        "cards": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/weapon/relationships/cards",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/weapon/cards"
+          }
+        },
+        "printings": {
+          "links": {
+            "self": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/weapon/relationships/printings",
+            "related": "https://api-preview.netrunnerdb.com/api/v3/public/card_subtypes/weapon/printings"
+          }
+        }
+      }
+    }
+  ]
+}
