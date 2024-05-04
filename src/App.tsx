@@ -34,7 +34,7 @@ const App: Component = () => {
           <div class="page-header">
             <h1>
               Netrunner Card Creator
-              <small>alpha</small>
+              <small>zeta</small>
             </h1>
           </div>
           <div class="row">

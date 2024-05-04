@@ -11,6 +11,7 @@ export default defineConfig({
     // devtools(),
     solidPlugin(),
   ],
+  base: '/selfmodcard/',
   server: {
     port: 3000,
   },

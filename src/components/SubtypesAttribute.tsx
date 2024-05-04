@@ -50,7 +50,6 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
         Subtypes
       </label>
       <div class="col-sm-9">
-        { card.subtypes.join(', ') }
         <TomSelectWrapper
           id={attribute}
           value={card.subtypes}

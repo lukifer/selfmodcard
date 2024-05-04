@@ -91,7 +91,7 @@ export const createCardStore = (attributes?: Partial<Card>) => {
     minDeckSize: 45,
     type: 'ambush', // TODO: delete
     subtypes: ['ambush'],
-    text: "If you pay 2 [c] when the Runner accesses Mokujin,the runner must take Mokujin.\nWhile the runner has Mokujin they can't run on central servers.\n[click] [click] [click]: Trash Mokujin",
+    text: "If you pay 2 [c] when the Runner accesses Mokujin, the runner must take Mokujin.\nWhile the runner has Mokujin they can't run on central servers.\n[click] [click] [click]: Trash Mokujin",
     fluff: '"I was completely stumped" - Whizzard',
     img: '',
     x: 0,
