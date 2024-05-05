@@ -2,10 +2,11 @@
 
 Card creator For Null-Signal-era Netrunner, ported from [yonbergman/self-modifying-card](https://github.com/yonbergman/self-modifying-card) to SolidJS and TypeScript, and using [Mnemic's high-quality templates](https://www.reddit.com/r/Netrunner/comments/yuapf2/mnemics_custom_netrunner_cards_1024_custom_cards/).
 
-Fully Operational &trade;, but WIP/YMMV.
+Fully Operational&trade;, but WIP/YMMV.
 
 ### TODO
 
+- Fix ID images
 - Autosized text
 - Customizable text size
 - Icon reference tooltip

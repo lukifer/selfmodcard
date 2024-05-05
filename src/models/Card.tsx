@@ -72,7 +72,7 @@ export function imageUri(card: Card) {
   const kind = card.kind === 'identity' ? `${side}ID` : capitalizeFirst(card.kind ?? '');
   const faction = capitalizeFirst(card.faction ?? '', 3);
   const suffix = faction === 'Neutral' ? `-${side}` : '';
-  return `/UI/${side}${kind}Default${faction}${suffix}.png`;
+  return `./UI/${side}${kind}Default${faction}${suffix}.png`;
 }
 
 export const createCardStore = (attributes?: Partial<Card>) => {

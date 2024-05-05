@@ -34,8 +34,8 @@ const App: Component = () => {
           <div class="page-header">
             <h1>
               Netrunner Card Creator
-              <small>zeta</small>
             </h1>
+            <h6>Under development; adapted from <a href="http://cardcreator.grndl.net/">GRNDL Card Creator</a> by <a href="https://github.com/yonbergman/self-modifying-card">@yonbergman</a></h6>
           </div>
           <div class="row">
             <div class="col-sm-7 form-view">
