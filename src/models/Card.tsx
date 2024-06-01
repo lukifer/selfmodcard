@@ -91,7 +91,7 @@ export const createCardStore = (attributes?: Partial<Card>) => {
     minDeckSize: 45,
     subtypes: ['bioroid', 'code_gate'],
     text: [
-      'Lose [click]: Break 1 subroutine. Only the Runner may use this ability.',
+      '<b>Lose [click]:</b> Break 1 subroutine. Only the Runner may use this ability.',
       '',
       '[subroutine] The Corp may draw 1 card.',
       '[subroutine] The Corp may draw 1 card.',
