@@ -2,13 +2,14 @@ import { Accessor, createEffect } from 'solid-js';
 import textFit from 'textfit';
 
 type FitTextProps = {
-  overrideFontSize?: Accessor<string>;
   content: () => string;
   class?: string;
+  maxFontSize: number;
+  overrideFontSize?: Accessor<string>;
 }
 
 export const FitText = (props: FitTextProps) => {
-  const { overrideFontSize } = props;
+  const { maxFontSize, overrideFontSize } = props;
 
   let textRef: HTMLDivElement | undefined;
 
@@ -19,7 +20,11 @@ export const FitText = (props: FitTextProps) => {
       minFontSize: parseFloat(fontSize),
       maxFontSize: parseFloat(fontSize),
     };
-    textFit(textRef, {multiLine: true, ...textFitForceFontSize});
+    textFit(textRef, {
+      maxFontSize,
+      multiLine: true,
+      ...textFitForceFontSize
+    });
   });
 
   return (

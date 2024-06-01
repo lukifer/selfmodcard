@@ -108,7 +108,7 @@ export const CardView = (props: {
       </Show>
       <div class="type"><span class="kind">{ card.kind }:</span> { card.subtypes.join(' – ') }</div>
       <div class={`influence i${card.influence ?? 0}`}></div>
-      <FitText class="main-content text" overrideFontSize={fontSize} content={() =>
+      <FitText class="main-content text" maxFontSize={14} overrideFontSize={fontSize} content={() =>
         `<p>${iconify(card.text).split('\n\n').join('</p><p>')}</p>`
         +
         '<p class="fluff">' + card.fluff + '</p>'
