@@ -12,6 +12,7 @@ Fully Operational&trade;, but WIP/YMMV.
 - Improve template and font integration
 - Improve image resizing perf
 - Customizable render quality (currently 750x1050)
+- Clean up subtypes formatting
 
 ## Install
 
