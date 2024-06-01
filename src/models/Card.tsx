@@ -24,7 +24,6 @@ export type Card = {
   minDeckSize: number;
   influence: number;
   mu: number;
-  type: string;
   text: string;
   subtypes: string[];
   fluff: string;
@@ -44,7 +43,8 @@ export const icons = {
   '1mu': ['[1mu]'],
   '2mu': ['[2mu]'],
   subroutine: ['[subroutine]', '[sub]','--->','-->','->'],
-  'recurring-credit': ['[recurring]']
+  'recurring-credit': ['[recurring]'],
+  'interrupt': ['[interrupt]'],
 }
 
 export const strengthMeaning = {
@@ -70,13 +70,42 @@ export function hasInfluence (card: Card) {
 export function imageUri(card: Card) {
   const side = capitalizeFirst(card.side ?? '');
   const kind = card.kind === 'identity' ? `${side}ID` : capitalizeFirst(card.kind ?? '');
-  const faction = capitalizeFirst(card.faction ?? '', 3);
+  const faction = card.faction === 'haas' ? 'HB' : capitalizeFirst(card.faction ?? '', 3);
   const suffix = faction === 'Neutral' ? `-${side}` : '';
   return `./UI/${side}${kind}Default${faction}${suffix}.png`;
 }
 
 export const createCardStore = (attributes?: Partial<Card>) => {
   const defaultAttributes: Card = {
+    side: 'corp',
+    faction: 'haas',
+    kind: 'ice',
+    unique: true,
+    name: 'Howard 1.0',
+    subtitle: '',
+    strength: '4',
+    price: '2',
+    trash: '',
+    influence: 1,
+    mu: 1,
+    minDeckSize: 45,
+    subtypes: ['Bioroid', 'Code Gate'],
+    text: [
+      'Lose [click]: Break 1 subroutine. Only the Runner may use this ability.',
+      '',
+      '[subroutine] The Corp may draw 1 card.',
+      '[subroutine] The Corp may draw 1 card.',
+      '[subroutine] Shuffle up to one card from HQ or Archives into R&D for every card the Corp has drawn this turn.',
+      '',
+      'Howard 1.0 uses 0 influence if included in an NBN deck.',
+    ].join('\n'),
+    fluff: '',
+    img: '',
+    x: 0,
+    y: 0,
+    scale: 1.0
+  }
+  const defaultAttributesOld: Card = {
     side: 'corp',
     faction: 'jinteki',
     kind: 'asset',
@@ -89,7 +118,6 @@ export const createCardStore = (attributes?: Partial<Card>) => {
     influence: 2,
     mu: 1,
     minDeckSize: 45,
-    type: 'ambush', // TODO: delete
     subtypes: ['ambush'],
     text: "If you pay 2 [c] when the Runner accesses Mokujin, the runner must take Mokujin.\nWhile the runner has Mokujin they can't run on central servers.\n[click] [click] [click]: Trash Mokujin",
     fluff: '"I was completely stumped" - Whizzard',

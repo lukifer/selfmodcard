@@ -9,11 +9,12 @@ export type TextAttributeProps<T extends CardSelectAttribute> = {
   card: Card;
   label?: string;
   textarea?: boolean;
+  rows?: number;
   info?: string;
 }
 
 export function TextAttribute<T extends CardSelectAttribute>(props: TextAttributeProps<T>) {
-  const { attribute, card, label } = props;
+  const { attribute, card, label, rows } = props;
 
   const updateContent = (ev: Event) => {
     const el = ev.target as HTMLInputElement | HTMLTextAreaElement;
@@ -59,6 +60,7 @@ export function TextAttribute<T extends CardSelectAttribute>(props: TextAttribut
         <Show when={props.textarea}>
           <textarea 
             class="form-control"
+            rows={rows}
             ref={textareaRef} 
             onKeyUp={updateContent} 
             onChange={updateContent}>

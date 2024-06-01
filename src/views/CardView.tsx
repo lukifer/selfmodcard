@@ -1,6 +1,7 @@
-import { Show } from 'solid-js';
+import { Accessor, Show } from 'solid-js';
 import { Card, icons, imageUri } from '../models/Card';
 import { hasStrength, hasTrash } from './AttributesView';
+import { FitText } from '../components/FitText';
 
 export const iconRegexes = Object.entries(icons).reduce((regexes, [icon, strs]: [string, string[]]) => {
   if (icon) regexes.push([icon, new RegExp(strs.map(s =>
@@ -15,8 +16,11 @@ export function iconify(content: string) {
   ), content);
 }
 
-export const CardView = (props: { card: Card }) => {
-  const { card } = props;
+export const CardView = (props: {
+  card: Card
+  fontSize: Accessor<string>
+}) => {
+  const { card, fontSize } = props;
 
   let lastX: number;
   let lastY: number;
@@ -70,7 +74,7 @@ export const CardView = (props: { card: Card }) => {
 
   return (
     <div
-      class={`card ${card.kind} ${card.faction} ${card.side}`}
+      class={`card ${card.kind} ${card.faction} ${card.side} ${card.img ? 'has-image' : ''}`}
       onMouseMove={onMouseMove}
       onWheel={onWheel}
       onMouseDown={onMouseDown}
@@ -102,12 +106,14 @@ export const CardView = (props: { card: Card }) => {
         <div class="min-deck">{ card.minDeckSize }</div>
         <div class="max-influence">{ card.influence }</div>
       </Show>
-      <div class="type"><span class="kind">{ card.kind }:</span> { card.subtypes.join(' - ') }</div>
+      <div class="type"><span class="kind">{ card.kind }:</span> { card.subtypes.join(' – ') }</div>
       <div class={`influence i${card.influence ?? 0}`}></div>
-      <div class="main-content">
-        <pre class="text" innerHTML={'<p>'+iconify(card.text).replace(/\n+/g, '</p><p>')+'</p>'}></pre>
-        <pre class="fluff">{card.fluff}</pre>
-      </div>
+      <FitText class="main-content text" overrideFontSize={fontSize} content={() =>
+        `<p>${iconify(card.text).split('\n\n').join('</p><p>')}</p>`
+        +
+        '<p class="fluff">' + card.fluff + '</p>'
+      }>
+      </FitText>
     </div>
   )
 }

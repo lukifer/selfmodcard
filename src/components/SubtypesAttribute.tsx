@@ -22,10 +22,6 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
   ).join(' ');
 
   const onOptionAdd = (value: string, data: unknown) => {
-    // console.log(`onOptionAdded: ${value}`, data, [...subtypesOptions, {
-    //   value,
-    //   text: ucFirst(value),
-    // }].sort((a, b) => a.text > b.text ? 1 : -1));
     setOptions([...subtypesOptions, {
       value,
       text: ucFirst(value),

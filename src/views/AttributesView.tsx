@@ -48,6 +48,7 @@ function opts<T extends readonly string[]>(vals: T) {
 //   <dt><i class="icon icon-mu"></i></dt><dd>[mu]</dd>
 //   <dt><i class="icon icon-1mu"></i></dt><dd>[1mu]</dd>
 //   <dt><i class="icon icon-2mu"></i></dt><dd>[2mu]</dd>
+//   <dt><i class="icon icon-interrupt"></i></dt><dd>[interrupt]</dd>
 // </dl>
 
 export const AttributesView = (props: { card: Card }) => {
@@ -177,6 +178,7 @@ export const AttributesView = (props: { card: Card }) => {
       <TextAttribute
         textarea
         attribute="text"
+        rows={5}
         card={card}
         info="Lorem ipsum"
       ></TextAttribute>

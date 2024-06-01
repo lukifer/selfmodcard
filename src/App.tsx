@@ -10,8 +10,13 @@ import { createCardStore } from './models/Card';
 import { AttributesView } from './views/AttributesView'
 import { CardView } from './views/CardView'
 
+const fontSizes = ['auto', ...[...Array(25)].map((_, n) => 
+  `${(6 + (n/2))}px`
+)]
+
 const App: Component = () => {
   const [imageData, setImageData] = createSignal('')
+  const [fontSize, setFontSize] = createSignal<string>('auto')
   const card = createCardStore();
 
   async function generateImage(): Promise<void> {
@@ -39,26 +44,38 @@ const App: Component = () => {
           </div>
           <div class="row">
             <div class="col-sm-7 form-view">
-              <h2>Customize your card</h2>
               <form class="form-horizontal" role="form">
                 <AttributesView card={card} />
               </form>
             </div>
             <div class="col-sm-5 card-view">
-              <h2>Card View</h2>
-              <CardView card={card} />
-              <button type="button" class="generate-image btn btn-default btn-md" onClick={generateImage}>
-                <span class="glyphicon glyphicon-play"></span>
-                <span>Generate Image</span>
-              </button>
-              <a
-                class={`save-image btn btn-default btn-md ${imageData() ? '' : 'disabled'}`}
-                download={cardDownloadName()}
-                href={imageData()}
-              >
-                <span class="glyphicon glyphicon-floppy-disk"></span>
-                <span>Save Image</span>
-              </a>
+              <CardView card={card} fontSize={fontSize} />
+              <div class="card-controls">
+                <button type="button" class="generate-image btn btn-default btn-md" onClick={generateImage}>
+                  <span class="glyphicon glyphicon-play"></span>
+                  <span>{imageData() ? 'Update' : 'Build'} PNG</span>
+                </button>
+                <a
+                  class={`save-image btn btn-default btn-md ${imageData() ? '' : 'disabled'}`}
+                  download={cardDownloadName()}
+                  href={imageData()}
+                >
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                  <span>Save PNG</span>
+                </a>
+                <label for="font-size">
+                  Text Size:
+                </label>
+                <select id="font-size" class="form-control" value={fontSize()} onInput={(({ target }) => {
+                  setFontSize(target.value);
+                })}>
+                  {fontSizes.map((size) => (
+                    <option value={size}>
+                      {`${size}`}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
         </div>

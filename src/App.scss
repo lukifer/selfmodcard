@@ -11,6 +11,32 @@ label {
   margin-top: -8px;
   margin-bottom: 15px;
 }
+.card-controls {
+  white-space: nowrap;
+}
+.card-controls label,
+.card-controls button,
+.card-controls a {
+  margin-right: 0.5rem;
+}
+.card-controls span:last-child {
+  padding-left: 2px;
+}
+.card-controls label {
+  font-weight: 500;
+  vertical-align: middle;
+  font-size: 14px;
+  padding-top: 7px;
+  height: 34px;
+  margin-left: 0.75rem;
+  margin-bottom: 0;
+}
+.card-controls select {
+  width: auto;
+  padding: 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
 
 @font-face {
   font-family: 'Netrunner';
@@ -114,6 +140,18 @@ label {
 .icon-rez:before {
   content: "\e60f";
 }
+.icon-interrupt {
+  display: inline-block;
+}
+.icon-interrupt:before {
+  content: "  ";
+  width: 1rem;
+  height: 1rem;
+  background-image: url('/Icons/Interrupt.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
 @mixin numbers() {
   font-family: 'Orbitron', sans-serif;
@@ -180,9 +218,12 @@ footer {
   position: relative;
   margin-bottom: 10px;
 
+  &.has-image img {
+    cursor: move;
+  }
+
   img {
     width: 100%;
-    cursor: move;
     background: transparent;
   }
   > div {
@@ -223,11 +264,11 @@ footer {
     width: 84.5%;
     overflow: hidden;
     @include text();
-    font-size: 13px;
+    white-space: pre-wrap;
     .fluff {
       margin-top: 0.5rem;
       font-style: italic;
-      font-size: 10px;
+      font-size: 90%;
     }
     .text p {
       margin-bottom: 0.5rem;
@@ -445,8 +486,8 @@ footer {
     .strength {
       transform: rotate(-90deg);
       text-align: right;
-      top: 89.2%;
-      left: 4.6%;
+      top: 90.5%;
+      left: 2.6%;
       font-weight: normal;
       font-size: 30px;
       -webkit-text-stroke: 0;
@@ -742,17 +783,6 @@ footer {
       }
     }
   }
-}
-pre {
-  padding: 0;
-  margin: 0;
-  font-size: inherit;
-  font-family: inherit;
-  background: none;
-  border: none;
-  white-space: pre-wrap;
-  word-break: normal;
-  word-wrap: normal;
 }
 
 $select-color-item:					#1da7ee;

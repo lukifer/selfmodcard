@@ -7,10 +7,7 @@ Fully Operational&trade;, but WIP/YMMV.
 ### TODO
 
 - Fix ID images
-- Autosized text
-- Customizable text size
 - Icon reference tooltip
-- Interrupt icon
 - Persistence
 - Improve template and font integration
 - Improve image resizing perf
