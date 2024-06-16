@@ -1,4 +1,6 @@
-import { onCleanup, Show } from 'solid-js';
+import { createSignal, JSXElement, onCleanup, Show } from 'solid-js';
+import { Tooltip, OverlayTrigger } from "solid-bootstrap";
+
 import { Card } from '../models/Card';
 import { capitalizeFirst } from '../utils';
 
@@ -10,11 +12,12 @@ export type TextAttributeProps<T extends CardSelectAttribute> = {
   label?: string;
   textarea?: boolean;
   rows?: number;
-  info?: string;
+  info?: string | JSXElement;
 }
 
 export function TextAttribute<T extends CardSelectAttribute>(props: TextAttributeProps<T>) {
-  const { attribute, card, label, rows } = props;
+  const { attribute, card, info, label, rows } = props;
+  const [showPopover, setShowPopover] = createSignal(false)
 
   const updateContent = (ev: Event) => {
     const el = ev.target as HTMLInputElement | HTMLTextAreaElement;
@@ -37,11 +40,33 @@ export function TextAttribute<T extends CardSelectAttribute>(props: TextAttribut
 
   return (
     <div class="form-group">
-      <label for={attribute} class={`col-sm-3 control-label ${attribute}`}>
+      <label id={`label-${attribute}`} for={attribute} class={`col-sm-3 control-label ${attribute}`}>
         {label || capitalizeFirst(attribute)}:
         <Show when={!!props.info}>
-          &nbsp;
-          <i class="text-help glyphicon glyphicon-question-sign"></i>
+          <OverlayTrigger
+            show={showPopover()}
+            placement="right"
+            popperConfig={{
+              modifiers: [
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [0, 8],
+                  },
+                },
+              ],
+            }}
+            overlay={
+              <Tooltip id="help-tooltip">
+                { info }
+              </Tooltip>
+            }
+          >
+            <span>
+              &nbsp;
+              <i id={`info-${attribute}`} onMouseOver={() => setShowPopover(true)} onMouseOut={() => setShowPopover(false)} class="text-help glyphicon glyphicon-question-sign"></i>
+            </span>
+          </OverlayTrigger>
         </Show>
       </label>
       <div class={props.textarea ? 'col-sm-9' : 'col-sm-5'}>

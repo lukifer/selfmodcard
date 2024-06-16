@@ -6,7 +6,6 @@ Fully Operational&trade;, but WIP/YMMV.
 
 ### TODO
 
-- Icon reference tooltip
 - Fix subroutine indendation
 - Fix ID images
 - Markdown-style bold formatting

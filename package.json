@@ -21,7 +21,8 @@
   "dependencies": {
     "@thisbeyond/solid-select": "^0.14.0",
     "html2canvas": "^1.4.1",
-    "solid-js": "^1.7.6",
+    "solid-bootstrap": "^1.0.20",
+    "solid-js": "^1.8.17",
     "textfit": "^2.4.0",
     "tom-select": "^2.3.1"
   }

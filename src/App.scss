@@ -795,6 +795,49 @@ $select-width-item-border:			1px;
 $select-shadow-input:				inset 0 1px 1px rgba(0, 0, 0, 10%) !default;
 $select-shadow-input-focus:			inset 0 1px 2px rgba(0, 0, 0, 15%) !default;
 
+.tooltip-inner {
+  min-width: 256px;
+  color: black;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 0 0 2px #999;
+  padding: 16px;
+
+  dl {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+    gap: 12px 8px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  dt, dd {
+    margin: 0;
+    align-self: center;
+  }
+  
+  dt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  
+  dd {
+    text-align: center;
+  }
+
+  .icon-interrupt {
+    width: 32px;
+    height: 32px;
+  }
+  .icon-interrupt:before {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+  }
+}
+
 // @import "tom-select";
 // @include ts-caret;
 

@@ -36,20 +36,20 @@ function opts<T extends readonly string[]>(vals: T) {
   }), {} as { [K in T[number]]: string })
 }
 
-// TODO
-//   <p>You can add icons by using the following phrases</p>
-// <dl class="dl-horizontal">
-//   <dt><i class="icon icon-click"></i></dt><dd>[click]</dd>
-//   <dt><i class="icon icon-credit"></i></dt><dd>[credit]</dd>
-//   <dt><i class="icon icon-subroutine"></i></dt><dd>[sub] or --></dd>
-//   <dt><i class="icon icon-recurring-credit"></i></dt><dd>[recurring]</dd>
-//   <dt><i class="icon icon-trash"></i></dt><dd>[trash]</dd>
-//   <dt><i class="icon icon-link"></i></dt><dd>[link]</dd>
-//   <dt><i class="icon icon-mu"></i></dt><dd>[mu]</dd>
-//   <dt><i class="icon icon-1mu"></i></dt><dd>[1mu]</dd>
-//   <dt><i class="icon icon-2mu"></i></dt><dd>[2mu]</dd>
-//   <dt><i class="icon icon-interrupt"></i></dt><dd>[interrupt]</dd>
-// </dl>
+const helpTooltip = <>
+  <dl>
+    <dt><i class="icon icon-click"></i></dt><dd>[click]</dd>
+    <dt><i class="icon icon-credit"></i></dt><dd>[credit]</dd>
+    <dt><i class="icon icon-subroutine"></i></dt><dd>[sub]<br />--&gt;</dd>
+    <dt><i class="icon icon-recurring-credit"></i></dt><dd>[recurring]</dd>
+    <dt><i class="icon icon-trash"></i></dt><dd>[trash]</dd>
+    <dt><i class="icon icon-link"></i></dt><dd>[link]</dd>
+    <dt><i class="icon icon-mu"></i></dt><dd>[mu]</dd>
+    <dt><i class="icon icon-1mu"></i></dt><dd>[1mu]</dd>
+    <dt><i class="icon icon-2mu"></i></dt><dd>[2mu]</dd>
+    <dt><i class="icon icon-interrupt"></i></dt><dd>[interrupt]</dd>
+  </dl>
+</>
 
 export const AttributesView = (props: { card: Card }) => {
   const { card } = props;
@@ -180,7 +180,7 @@ export const AttributesView = (props: { card: Card }) => {
         attribute="text"
         rows={5}
         card={card}
-        info="Lorem ipsum"
+        info={helpTooltip}
       ></TextAttribute>
 
       <TextAttribute
