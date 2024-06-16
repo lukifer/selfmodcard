@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@floating-ui/dom':
-    specifier: ^1.6.5
-    version: 1.6.5
   '@thisbeyond/solid-select':
     specifier: ^0.14.0
     version: 0.14.0(solid-js@1.8.17)
@@ -20,9 +17,6 @@ dependencies:
   solid-js:
     specifier: ^1.8.17
     version: 1.8.17
-  solid-simple-popover:
-    specifier: ^2.0.0
-    version: 2.0.0(@floating-ui/dom@1.6.5)(solid-js@1.8.17)
   textfit:
     specifier: ^2.4.0
     version: 2.4.0
@@ -598,23 +592,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@floating-ui/core@1.6.2:
-    resolution: {integrity: sha512-+2XpQV9LLZeanU4ZevzRnGFg2neDeKHgFLjP6YLW+tly0IvrhqT4u8enLGjLH3qeh85g19xY5rsAusfwTdn5lg==}
-    dependencies:
-      '@floating-ui/utils': 0.2.2
-    dev: false
-
-  /@floating-ui/dom@1.6.5:
-    resolution: {integrity: sha512-Nsdud2X65Dz+1RHjAIP0t8z5e2ff/IRbei6BqFrl1urT8sDVzM1HMQ+R0XcU5ceRfyO3I6ayeqIfh+6Wb8LGTw==}
-    dependencies:
-      '@floating-ui/core': 1.6.2
-      '@floating-ui/utils': 0.2.2
-    dev: false
-
-  /@floating-ui/utils@0.2.2:
-    resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
-    dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}
@@ -1341,16 +1318,6 @@ packages:
       '@babel/types': 7.22.5
       solid-js: 1.8.17
     dev: true
-
-  /solid-simple-popover@2.0.0(@floating-ui/dom@1.6.5)(solid-js@1.8.17):
-    resolution: {integrity: sha512-FtPCjoRY5TIwvVw34kQpJ6u3itSDwb6UkzqEvMdZ8K4ilLafEXM8vroWojq3Re0tRynMsKn3kGC+32MBRYG6YQ==}
-    peerDependencies:
-      '@floating-ui/dom': ^1.5
-      solid-js: ^1.8
-    dependencies:
-      '@floating-ui/dom': 1.6.5
-      solid-js: 1.8.17
-    dev: false
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
