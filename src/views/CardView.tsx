@@ -13,7 +13,7 @@ export const iconRegexes = Object.entries(icons).reduce((regexes, [icon, strs]: 
 export function iconify(content: string) {
   return iconRegexes.reduce((content, [icon, regex]) => (
     content.replace(regex, `<i class='icon icon-${icon}'></i>`)
-  ), content);
+  ), content.replace(/ ->/g, '&rarr;'));
 }
 
 export const CardView = (props: {

@@ -3,8 +3,9 @@ import { createMemo, Show } from "solid-js";
 import { SelectAttribute } from "../components/SelectAttribute";
 import { SubtypesAttribute } from "../components/SubtypesAttribute";
 import { NumberAttribute } from '../components/NumberAttribute';
-import { capitalizeFirst } from '../utils';
 import { TextAttribute } from "../components/TextAttribute";
+import { loadImageAsDataUri } from '../App';
+import { capitalizeFirst } from '../utils';
 
 import {
   Card,
@@ -63,6 +64,15 @@ export const AttributesView = (props: { card: Card }) => {
     };
     reader.readAsDataURL(selectedFile);
   };
+
+  const imageUrlReady = (ev: Event) => {
+    card.imgUrl = (ev.target as HTMLInputElement).value;
+    if (/^http/.test(card.imgUrl)) {
+      loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
+        card.img = dataUri;
+      })
+    }
+  }
 
   const factionOpts = createMemo(() => card.side === 'runner' ? opts(runnerFactions) : opts(corpFactions));
   const kindOpts = createMemo(() => card.side === 'runner' ? opts(runnerKinds) : opts(corpKinds));
@@ -189,17 +199,12 @@ export const AttributesView = (props: { card: Card }) => {
         card={card}
       ></TextAttribute>
 
-      {/* <div class="form-group">
-        <label for="text" class="col-sm-3 control-label">Text: <i class="text-help glyphicon glyphicon-question-sign"></i></label>
-        <div class="col-sm-9">
-          <textarea id="text" class="form-control"/>
-        </div>
-      </div> */}
-
       <div class="form-group">
         <label for="text" class="col-sm-3 control-label">Image:</label>
         <div class="col-sm-9">
           <input type="file" id="image" class='form-control' onChange={imageReady} />
+          <div>- or -</div>
+          <input id="image_url" placeholder="Image URL" class='form-control' value={card.imgUrl} onChange={imageUrlReady} />
         </div>
       </div>
 

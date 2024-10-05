@@ -29,6 +29,7 @@ export type Card = {
   fluff: string;
   subtitle: string;
   img: string;
+  imgUrl: string;
   scale: number
   x: number;
   y: number;
@@ -76,6 +77,8 @@ export function imageUri(card: Card) {
 }
 
 export const createCardStore = (attributes?: Partial<Card>) => {
+  const { location } = document;
+
   const defaultAttributes: Card = {
     side: 'corp',
     faction: 'haas',
@@ -101,36 +104,11 @@ export const createCardStore = (attributes?: Partial<Card>) => {
     ].join('\n'),
     fluff: '',
     img: '',
-    x: 0,
-    y: 0,
-    scale: 1.0
+    imgUrl: location.origin + location.pathname + '/img/jhow2.jpg',
+    x: 65,
+    y: 275,
+    scale: 0.74
   }
-  const defaultAttributesOld: Card = {
-    side: 'corp',
-    faction: 'jinteki',
-    kind: 'asset',
-    unique: false,
-    name: 'Mokujin',
-    subtitle: '',
-    strength: '',
-    price: '0',
-    trash: '2',
-    influence: 2,
-    mu: 1,
-    minDeckSize: 45,
-    subtypes: ['ambush'],
-    text: "If you pay 2 [c] when the Runner accesses Mokujin, the runner must take Mokujin.\nWhile the runner has Mokujin they can't run on central servers.\n[click] [click] [click]: Trash Mokujin",
-    fluff: '"I was completely stumped" - Whizzard',
-    img: '',
-    x: 0,
-    y: 0,
-    // imgPosition: {
-    //   x: 0,
-    //   y: 0,
-    //   scale: 1.0,
-    // },
-    scale: 1.0,
-  };
 
   const card = createMutable<Card>({ ...defaultAttributes, ...attributes });
 

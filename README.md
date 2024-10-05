@@ -9,7 +9,6 @@ Fully Operational&trade;, but WIP/YMMV.
 - Fix subroutine indendation
 - Fix ID images
 - Markdown-style bold formatting
-- Threat/Interface arrow icon
 - Persistence
 - Improve template and font integration
 - Improve image resizing perf

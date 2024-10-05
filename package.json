@@ -20,7 +20,9 @@
   },
   "dependencies": {
     "@thisbeyond/solid-select": "^0.14.0",
+    "base62str": "^1.0.10",
     "html2canvas": "^1.4.1",
+    "search-params": "^4.0.1",
     "solid-bootstrap": "^1.0.20",
     "solid-js": "^1.8.17",
     "textfit": "^2.4.0",

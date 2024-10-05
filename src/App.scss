@@ -4,6 +4,7 @@
 label {
   user-select: none;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .form-group.checkbox {
@@ -12,6 +13,7 @@ label {
   margin-bottom: 15px;
 }
 .card-controls {
+  margin: 1.5rem 0;
   white-space: nowrap;
 }
 .card-controls label,
@@ -31,11 +33,25 @@ label {
   margin-left: 0.75rem;
   margin-bottom: 0;
 }
+.select-wrapper {
+  position: relative;
+  &:before {
+    font-family: "Glyphicons Halflings";
+    position: absolute;
+    font-size: 1rem;
+    top: 1rem;
+    right: 0.5rem;
+    content: "\e252";
+  }
+}
+.card-controls .select-wrapper {
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
 .card-controls select {
   width: auto;
   padding: 6px;
-  display: inline-block;
-  vertical-align: middle;
 }
 
 @font-face {
@@ -210,6 +226,30 @@ footer {
   position: relative;
 }
 
+.copy-clipboard {
+  width: 355px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  i {
+    margin-right: 0.25rem;
+  }
+  .complete {
+    color: green;
+    margin-top: 1rem;
+    .warning {
+      color: gray;
+    }
+  }
+  pre {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
 .card {
   width: 375px;
   height: 525px;
@@ -217,6 +257,8 @@ footer {
   background-size: contain;
   position: relative;
   margin-bottom: 10px;
+  border: 0;
+  border-radius: 2rem;
 
   &.has-image img {
     cursor: move;
