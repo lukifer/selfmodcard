@@ -2,27 +2,26 @@ import './App.scss';
 import "@thisbeyond/solid-select/style.css";
 
 import html2canvas from 'html2canvas';
-import Base62Str from 'base62str';
 import { parse } from 'search-params'
 
-import { Component, Show, createSignal, onMount } from 'solid-js';
+import { Component, Show, createSignal, createEffect, createResource } from 'solid-js';
 
-import { createCardStore } from './models/Card'; 
+import { createCardStore, Card } from './models/Card'; 
 
-import { AttributesView } from './views/AttributesView'
-import { CardView } from './views/CardView'
+import { AttributesView } from './views/AttributesView';
+import { CardView } from './views/CardView';
+
+import { zip, unzip } from './utils';
 
 const fontSizes = ['auto', ...[...Array(25)].map((_, n) => 
   `${(6 + (n/2))}px`
 )]
 
-const base62 = Base62Str.createInstance();
-
-function cardDataFromQueryString(cardData: string) {
+async function cardDataFromQueryString(cardData: string): Promise<Partial<Card>> {
   try {
-    const str = base62.decodeStr(`${cardData}`);
+    const str = await unzip(`${cardData}`);
     if (str) {
-      const json = JSON.parse(str);
+      const json = JSON.parse(str) as Partial<Card>;
       if (json.side && json.faction) {
         return json;
       }
@@ -58,13 +57,23 @@ export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
 };
 
 const App: Component = () => {
-  const [imageData, setImageData] = createSignal('')
-  const [fontSize, setFontSize] = createSignal<string>('auto')
-  const [base62CardData, setBase62CardData] = createSignal<string>('')
+  const [imageData, setImageData] = createSignal('');
+  const [fontSize, setFontSize] = createSignal<string>('auto');
+  const [compressedCardData, setCompressedCardData] = createSignal<string>('');
 
   const { location } = document;
   const searchParams = parse(location.search);
-  const card = createCardStore(searchParams.card ? cardDataFromQueryString(`${searchParams.card}`) : {});
+
+  const card = createCardStore({});
+
+  createEffect(async () => {
+    if (!!searchParams.card) {
+      const cardData = await cardDataFromQueryString(`${searchParams.card}`);
+      Object.keys(cardData).forEach(k => {
+        card[k] = cardData[k];
+      });
+    }
+  });
 
   if (card.imgUrl && /^http/.test(card.imgUrl)) {
     loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
@@ -87,9 +96,10 @@ const App: Component = () => {
 
   async function copyCardData() {
     const { img, ...cardData } = card;
-    const encodedCardData = base62.encodeStr(JSON.stringify(cardData));
-    await navigator.clipboard.writeText(location.origin + location.pathname + '?card=' + encodedCardData);
-    setBase62CardData(encodedCardData);
+    const cardJson = JSON.stringify(cardData);
+    const zippedCard = await zip(cardJson);
+    await navigator.clipboard.writeText(location.origin + location.pathname + '?card=' + zippedCard);
+    setCompressedCardData(zippedCard);
   }
 
   return (
@@ -115,9 +125,9 @@ const App: Component = () => {
                   <i class="glyphicon glyphicon-share"></i>
                   Copy Card URL To Clipboard
                 </a>
-                <Show when={!!base62CardData()}>
+                <Show when={!!compressedCardData()}>
                   <div class="complete">
-                    Copied!: <pre>{location.origin + location.pathname}?card={base62CardData()}</pre>
+                    Copied!: <pre>{location.origin + location.pathname}?card={compressedCardData()}</pre>
                     <Show when={card.img && !card.imgUrl}>
                       <div class="warning">
                         (Uploaded image not included. To preserve image data, use Image URL instead.)

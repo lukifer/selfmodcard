@@ -30,13 +30,15 @@ export function SelectAttribute<T extends CardSelectAttribute>(props: SelectionP
     <div class="form-group">
       <label for={attribute} class="col-sm-3 control-label">{label || attribute}:</label>
       <div class="col-sm-9">
-        <select class="form-control" id={attribute} value={card[attribute]} onInput={handleChange}>
-          {Object.entries(options()).map(([val, label]) => (
-            <option value={val}>
-              {`${label}`}
-            </option>
-          ))}
-        </select>
+        <div class="select-wrapper">
+          <select class="form-control" id={attribute} value={card[attribute]} onInput={handleChange}>
+            {Object.entries(options()).map(([val, label]) => (
+              <option value={val}>
+                {`${label}`}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );

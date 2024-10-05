@@ -8,9 +8,6 @@ dependencies:
   '@thisbeyond/solid-select':
     specifier: ^0.14.0
     version: 0.14.0(solid-js@1.8.17)
-  base62str:
-    specifier: ^1.0.10
-    version: 1.0.10
   html2canvas:
     specifier: ^1.4.1
     version: 1.4.1
@@ -917,10 +914,6 @@ packages:
       '@babel/core': 7.22.5
       babel-plugin-jsx-dom-expressions: 0.36.10(@babel/core@7.22.5)
     dev: true
-
-  /base62str@1.0.10:
-    resolution: {integrity: sha512-q+sWEg8TXw1NN2LJ5TOg0IgnxERZ1/sVK48Y/TDxMfxaVjRmPcF6OO4MoL1xemEp7f7mJYDapAGSr+0lho5lJQ==}
-    dev: false
 
   /base64-arraybuffer@1.0.2:
     resolution: {integrity: sha512-I3yl4r9QB5ZRY3XuJVEPfc2XhZO6YweFPI+UovAzn+8/hb3oJ6lnysaFcjVpkCPfVWFUDvoZ8kmVDP7WyRtYtQ==}
