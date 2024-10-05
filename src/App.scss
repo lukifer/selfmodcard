@@ -436,6 +436,12 @@ footer {
     }
   }
 
+  &.operation.neutral {
+    .influence {
+      left: 4.25%;
+    }
+  }
+
   &.upgrade {
     .name {
       font-size: 16px;
@@ -470,6 +476,12 @@ footer {
     .influence {
       left: 14.2%;
       top: 94.3%;
+    }
+  }
+
+  &.upgrade.neutral {
+    .influence {
+      left: 4.25%;
     }
   }
 
@@ -509,6 +521,12 @@ footer {
       left: 88%;
       top: 86%;
       @include trash();
+    }
+  }
+
+  &.asset.neutral {
+    .influence {
+      left: 4.25%;
     }
   }
 
@@ -562,7 +580,7 @@ footer {
     .influence {
       transform-origin: bottom left;
       transform: rotate(-90deg);
-      left: 95.8%;
+      left: 95.7%;
       top: 86.6%;
     }
   }
