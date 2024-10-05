@@ -88,7 +88,7 @@ const App: Component = () => {
   async function copyCardData() {
     const { img, ...cardData } = card;
     const encodedCardData = base62.encodeStr(JSON.stringify(cardData));
-    await navigator.clipboard.writeText(location.origin + location.pathname + encodedCardData);
+    await navigator.clipboard.writeText(location.origin + location.pathname + '?card=' + encodedCardData);
     setBase62CardData(encodedCardData);
   }
 
