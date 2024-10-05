@@ -1,4 +1,5 @@
-import { Accessor, Show } from 'solid-js';
+import { Accessor, Show, createSignal } from 'solid-js';
+
 import { Card, icons, imageUri } from '../models/Card';
 import { hasStrength, hasTrash } from './AttributesView';
 import { FitText } from '../components/FitText';
@@ -10,41 +11,48 @@ export const iconRegexes = Object.entries(icons).reduce((regexes, [icon, strs]: 
   return regexes;
 }, [] as Array<[string, RegExp]>)
 
-export function iconify(content: string) {
+export function iconify(content: string, cardname: string) {
   return iconRegexes.reduce((content, [icon, regex]) => (
     content.replace(regex, `<i class='icon icon-${icon}'></i>`)
-  ), content.replace(/ ->/g, '&rarr;'));
+  ), content.replace(/ ->/g, '&rarr;').replace(/\[cardname\]/g, cardname));
 }
+
+const zoomIntensity = 1.03;
 
 export const CardView = (props: {
   card: Card
   fontSize: Accessor<string>
 }) => {
   const { card, fontSize } = props;
-
-  let lastX: number;
-  let lastY: number;
-  let isDragging = false;
+  const [lastX, setLastX] = createSignal(0);
+  const [lastY, setLastY] = createSignal(0);
+  const [cardStartX, setCardStartX] = createSignal(0);
+  const [cardStartY, setCardStartY] = createSignal(0);
+  const [isDragging, setIsDragging] = createSignal(false);
   
   function onMouseDown(ev: MouseEvent) {
-    lastX = ev.clientX;
-    lastY = ev.clientY;
-    isDragging = true;
+    setLastX(ev.clientX);
+    setLastY(ev.clientY);
+    setCardStartX(card.x);
+    setCardStartY(card.y);
+    setIsDragging(true);
   }
 
   function onMouseUp() {
-    isDragging = false;
+    setIsDragging(false);
   }
 
   function onMouseMove(ev: MouseEvent) {
-    if (!isDragging) return;
+    if (!isDragging()) return;
     ev.preventDefault();
-    card.x = card.x + (ev.clientX - lastX);
-    card.y = card.y + (ev.clientY - lastY);
+    ev.stopImmediatePropagation();
+    card.x = cardStartX() + (ev.clientX - lastX());
+    card.y = cardStartY() + (ev.clientY - lastY());
   }
 
   function onWheel(ev: WheelEvent) {
-    const zoomIntensity = 1.03;
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
     
     // Get bounding rectangle of the container
     const container = ev.currentTarget as HTMLElement;
@@ -80,12 +88,12 @@ export const CardView = (props: {
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       style={{
-        'background-image': `url(${card.img})`,
+        'background-image': `url(${card.imgUrl ?? card.img})`,
         'background-position': `${card.x}px ${card.y}px`,
         'background-size': `${card.scale * 100.0}%`,
       }
     }>
-      <img src={imageUri(card)} />
+      <img src={imageUri(card)} draggable="false" />
 
       <div class="name">{ card.unique && '◆ ' }{ card.name }</div>
       <Show when={card.kind === 'identity'}>
@@ -109,7 +117,7 @@ export const CardView = (props: {
       <div class="type"><span class="kind">{ card.kind }:</span> { card.subtypes.join(' – ') }</div>
       <div class={`influence i${card.influence ?? 0}`}></div>
       <FitText class="main-content text" maxFontSize={14} overrideFontSize={fontSize} content={() => [
-        `<p>${iconify(card.text).split('\n\n').join('</p><p>')}</p>`,
+        `<p>${iconify(card.text, card.name).split('\n\n').join('</p><p>')}</p>`,
         `<p class="fluff">${card.fluff}</p>`
       ].join('\n')}>
       </FitText>

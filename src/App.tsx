@@ -4,7 +4,7 @@ import "@thisbeyond/solid-select/style.css";
 import html2canvas from 'html2canvas';
 import { parse } from 'search-params'
 
-import { Component, Show, createSignal, createEffect, createResource } from 'solid-js';
+import { Component, Show, createSignal, createEffect } from 'solid-js';
 
 import { createCardStore, Card } from './models/Card'; 
 
@@ -31,6 +31,7 @@ async function cardDataFromQueryString(cardData: string): Promise<Partial<Card>>
   }
 }
 
+// DEPRECATED
 export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
   const img = document.createElement('img');
   img.crossOrigin = 'anonymous';
@@ -75,11 +76,11 @@ const App: Component = () => {
     }
   });
 
-  if (card.imgUrl && /^http/.test(card.imgUrl)) {
-    loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
-      card.img = dataUri;
-    })
-  }
+  // if (card.imgUrl && /^http/.test(card.imgUrl)) {
+  //   loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
+  //     card.img = dataUri;
+  //   })
+  // }
 
   async function generateImage(): Promise<void> {
     const cardNode = document.querySelector<HTMLElement>('.card');

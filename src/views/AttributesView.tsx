@@ -4,13 +4,14 @@ import { SelectAttribute } from "../components/SelectAttribute";
 import { SubtypesAttribute } from "../components/SubtypesAttribute";
 import { NumberAttribute } from '../components/NumberAttribute';
 import { TextAttribute } from "../components/TextAttribute";
-import { loadImageAsDataUri } from '../App';
+// import { loadImageAsDataUri } from '../App';
 import { capitalizeFirst } from '../utils';
 
 import {
   Card,
   corpFactions,
   corpKinds,
+  defaultImage,
   runnerFactions,
   runnerKinds,
   strengthMeaning,
@@ -67,11 +68,11 @@ export const AttributesView = (props: { card: Card }) => {
 
   const imageUrlReady = (ev: Event) => {
     card.imgUrl = (ev.target as HTMLInputElement).value;
-    if (/^http/.test(card.imgUrl)) {
-      loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
-        card.img = dataUri;
-      })
-    }
+    // if (/^http/.test(card.imgUrl)) {
+    //   loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
+    //     card.img = dataUri;
+    //   })
+    // }
   }
 
   const factionOpts = createMemo(() => card.side === 'runner' ? opts(runnerFactions) : opts(corpFactions));
@@ -202,9 +203,15 @@ export const AttributesView = (props: { card: Card }) => {
       <div class="form-group">
         <label for="text" class="col-sm-3 control-label">Image:</label>
         <div class="col-sm-9">
-          <input type="file" id="image" class='form-control' onChange={imageReady} />
+          <input
+            id="image_url"
+            placeholder="Image URL"
+            class='form-control'
+            value={card.imgUrl === defaultImage ? '' : card.imgUrl}
+            onChange={imageUrlReady}
+          />
           <div>- or -</div>
-          <input id="image_url" placeholder="Image URL" class='form-control' value={card.imgUrl} onChange={imageUrlReady} />
+          <input type="file" id="image" class='form-control' onChange={imageReady} />
         </div>
       </div>
 

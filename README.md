@@ -14,6 +14,7 @@ Fully Operational&trade;, but WIP/YMMV.
 - Improve image resizing perf
 - Customizable render quality (currently 750x1050)
 - Clean up subtypes formatting
+- Image handling on mobile
 
 ## Install
 

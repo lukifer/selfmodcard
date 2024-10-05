@@ -73,12 +73,14 @@ export function imageUri(card: Card) {
   const kind = card.kind === 'identity' ? `${side}ID` : capitalizeFirst(card.kind ?? '');
   const faction = card.faction === 'haas' ? 'HB' : capitalizeFirst(card.faction ?? '', 3);
   const suffix = faction === 'Neutral' ? `-${side}` : '';
+  if (!side || !kind || !faction) return '';
   return `./UI/${side}${kind}Default${faction}${suffix}.png`;
 }
 
-export const createCardStore = (attributes?: Partial<Card>) => {
-  const { location } = document;
+const { location } = document;
+export const defaultImage = location.origin + location.pathname + 'img/jhow2.jpg';
 
+export const createCardStore = (attributes?: Partial<Card>) => {
   const defaultAttributes: Card = {
     side: 'corp',
     faction: 'haas',
@@ -100,11 +102,11 @@ export const createCardStore = (attributes?: Partial<Card>) => {
       '[subroutine] The Corp may draw 1 card.',
       '[subroutine] Shuffle up to one card from HQ or Archives into R&D for every card the Corp has drawn this turn.',
       '',
-      'Howard 1.0 uses 0 influence if included in an NBN deck.',
+      '[cardname] uses 0 influence if included in an NBN deck.',
     ].join('\n'),
     fluff: '',
     img: '',
-    imgUrl: location.origin + location.pathname + '/img/jhow2.jpg',
+    imgUrl: defaultImage,
     x: 65,
     y: 275,
     scale: 0.74
