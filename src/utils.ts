@@ -3,6 +3,10 @@ export function capitalizeFirst(str: string, allCapsMax = 0) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+export function miniMarkdown(text: string): string {
+  return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\*(.*?)\*/g, '<i>$1</i>');
+}
+
 export async function zip(input: string) {
   const encoder = new TextEncoder();
   const data = encoder.encode(input);

@@ -3,6 +3,7 @@ import { Accessor, Show, createSignal } from 'solid-js';
 import { Card, icons, imageUri } from '../models/Card';
 import { hasStrength, hasTrash } from './AttributesView';
 import { FitText } from '../components/FitText';
+import { miniMarkdown } from '../utils';
 
 export const iconRegexes = Object.entries(icons).reduce((regexes, [icon, strs]: [string, string[]]) => {
   if (icon) regexes.push([icon, new RegExp(strs.map(s =>
@@ -88,7 +89,7 @@ export const CardView = (props: {
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       style={{
-        'background-image': `url(${card.imgUrl ?? card.img})`,
+        'background-image': `url(${card.img})`,
         'background-position': `${card.x}px ${card.y}px`,
         'background-size': `${card.scale * 100.0}%`,
       }
@@ -117,7 +118,7 @@ export const CardView = (props: {
       <div class="type"><span class="kind">{ card.kind }:</span> { card.subtypes.join(' – ') }</div>
       <div class={`influence i${card.influence ?? 0}`}></div>
       <FitText class="main-content text" maxFontSize={14} overrideFontSize={fontSize} content={() => [
-        `<p>${iconify(card.text, card.name).split('\n\n').join('</p><p>')}</p>`,
+        `<p>${miniMarkdown(iconify(card.text, card.name)).split('\n\n').join('</p><p>')}</p>`,
         `<p class="fluff">${card.fluff}</p>`
       ].join('\n')}>
       </FitText>

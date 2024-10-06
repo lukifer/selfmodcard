@@ -4,7 +4,7 @@ import { SelectAttribute } from "../components/SelectAttribute";
 import { SubtypesAttribute } from "../components/SubtypesAttribute";
 import { NumberAttribute } from '../components/NumberAttribute';
 import { TextAttribute } from "../components/TextAttribute";
-// import { loadImageAsDataUri } from '../App';
+import { loadImageAsDataUri } from '../App';
 import { capitalizeFirst } from '../utils';
 
 import {
@@ -68,11 +68,11 @@ export const AttributesView = (props: { card: Card }) => {
 
   const imageUrlReady = (ev: Event) => {
     card.imgUrl = (ev.target as HTMLInputElement).value;
-    // if (/^http/.test(card.imgUrl)) {
-    //   loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
-    //     card.img = dataUri;
-    //   })
-    // }
+    if (/^http/.test(card.imgUrl)) {
+      loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
+        card.img = dataUri;
+      })
+    }
   }
 
   const factionOpts = createMemo(() => card.side === 'runner' ? opts(runnerFactions) : opts(corpFactions));

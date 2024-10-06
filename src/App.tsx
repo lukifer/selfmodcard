@@ -6,7 +6,7 @@ import { parse } from 'search-params'
 
 import { Component, Show, createSignal, createEffect } from 'solid-js';
 
-import { createCardStore, Card } from './models/Card'; 
+import { blankCard, createCardStore, Card, CARD_LOCAL_STORAGE_KEY } from './models/Card'; 
 
 import { AttributesView } from './views/AttributesView';
 import { CardView } from './views/CardView';
@@ -31,7 +31,6 @@ async function cardDataFromQueryString(cardData: string): Promise<Partial<Card>>
   }
 }
 
-// DEPRECATED
 export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
   const img = document.createElement('img');
   img.crossOrigin = 'anonymous';
@@ -44,16 +43,22 @@ export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
 
     const ctx = canvas.getContext('2d');
     if (ctx) {
-      ctx.drawImage(img, 0, 0);
       try {
+        ctx.drawImage(img, 0, 0);
         const dataURL = canvas.toDataURL('image/png');
         onload(dataURL);
-      } catch (err) {}
+      } catch (err) {
+        console.log('drawImage err', err);
+      }
     }
   };
 
   img.onerror = (error) => {
-    console.error("Failed to load image:", error);
+    if (!/themind\.gg/.test(url)) {
+      const proxyUrl = `http://hack.themind.gg:2323/proxy?url=${encodeURIComponent(url)}`;
+      console.error("Image load failed, trying proxied request", proxyUrl);
+      loadImageAsDataUri(proxyUrl, onload);
+    }
   };
 };
 
@@ -65,7 +70,13 @@ const App: Component = () => {
   const { location } = document;
   const searchParams = parse(location.search);
 
-  const card = createCardStore({});
+  let storedCard = null as Partial<Card> | null;
+  try {
+    const storedCardJson = localStorage.getItem(CARD_LOCAL_STORAGE_KEY);
+    if (storedCardJson) storedCard = JSON.parse(storedCardJson) as Partial<Card>;
+  } catch(err) {}
+
+  const card = createCardStore(storedCard ?? {});
 
   createEffect(async () => {
     if (!!searchParams.card) {
@@ -76,18 +87,22 @@ const App: Component = () => {
     }
   });
 
-  // if (card.imgUrl && /^http/.test(card.imgUrl)) {
-  //   loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
-  //     card.img = dataUri;
-  //   })
-  // }
+  if (card.imgUrl && /^http/.test(card.imgUrl)) {
+    loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
+      card.img = dataUri;
+    })
+  }
 
   async function generateImage(): Promise<void> {
     const cardNode = document.querySelector<HTMLElement>('.card');
-    const canvas: HTMLCanvasElement = await html2canvas(cardNode, {
-      allowTaint: true
-    });
-    setImageData(canvas.toDataURL('image/png'));
+    try {
+      const canvas: HTMLCanvasElement = await html2canvas(cardNode, {
+        allowTaint: false,
+      });
+      setImageData(canvas.toDataURL('image/png'));
+    } catch(err) {
+      console.log('generateImage error', err);
+    }
   }
 
   function cardDownloadName() {
@@ -101,6 +116,14 @@ const App: Component = () => {
     const zippedCard = await zip(cardJson);
     await navigator.clipboard.writeText(location.origin + location.pathname + '?card=' + zippedCard);
     setCompressedCardData(zippedCard);
+  }
+
+  function clearCardData() {
+    const sure = confirm('Are you sure you want to trash this card? I am far too lazy to implement an undo.');
+    if (sure) {
+      blankCard(card);
+      setCompressedCardData('');
+    }
   }
 
   return (
@@ -126,6 +149,10 @@ const App: Component = () => {
                   <i class="glyphicon glyphicon-share"></i>
                   Copy Card URL To Clipboard
                 </a>
+                <a class="trashing" href="javascript:void(0);" onClick={clearCardData}>
+                  <i class="icon icon-trash"></i>
+                  Trash Card
+                </a>
                 <Show when={!!compressedCardData()}>
                   <div class="complete">
                     Copied!: <pre>{location.origin + location.pathname}?card={compressedCardData()}</pre>
@@ -150,19 +177,21 @@ const App: Component = () => {
                   <span class="glyphicon glyphicon-floppy-disk"></span>
                   <span>Save PNG</span>
                 </a>
-                <label for="font-size">
-                  Text Size:
-                </label>
-                <div class="select-wrapper">
-                  <select id="font-size" class="form-control" value={fontSize()} onInput={(({ target }) => {
-                    setFontSize(target.value);
-                  })}>
-                    {fontSizes.map((size) => (
-                      <option value={size}>
-                        {`${size}`}
-                      </option>
-                    ))}
-                  </select>
+                <div class="right">
+                  <label for="font-size">
+                    Text Size:
+                  </label>
+                  <div class="select-wrapper">
+                    <select id="font-size" class="form-control" value={fontSize()} onInput={(({ target }) => {
+                      setFontSize(target.value);
+                    })}>
+                      {fontSizes.map((size) => (
+                        <option value={size}>
+                          {`${size}`}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>

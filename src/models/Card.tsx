@@ -3,6 +3,8 @@ import { createMutable } from 'solid-js/store';
 import { capitalizeFirst } from '../utils';
 // import { createHistoryStore } from './models/HistoryStore';
 
+export const CARD_LOCAL_STORAGE_KEY = 'card';
+
 export const corpFactions = ['neutral', 'weyland', 'haas', 'jinteki', 'nbn'] as const;
 export const runnerFactions = ['neutral', 'anarch', 'criminal', 'shaper'] as const;
 export const corpKinds = ['agenda', 'asset', 'operation', 'upgrade', 'ice', 'identity'] as const;
@@ -77,11 +79,39 @@ export function imageUri(card: Card) {
   return `./UI/${side}${kind}Default${faction}${suffix}.png`;
 }
 
+export function blankCard(card: Card) {
+  const blank = {
+    side: 'corp',
+    faction: 'neutral',
+    kind: 'agenda',
+    unique: false,
+    name: '',
+    subtitle: '',
+    strength: '0',
+    price: '0',
+    trash: '',
+    influence: 1,
+    mu: 1,
+    minDeckSize: 45,
+    subtypes: [],
+    text: '',
+    fluff: '',
+    img: '',
+    imgUrl: '',
+    x: 0,
+    y: 0,
+    scale: 1.0
+  }
+  Object.keys(blank).forEach((k) => {
+    card[k] = blank[k];
+  });
+}
+
 const { location } = document;
 export const defaultImage = location.origin + location.pathname + 'img/jhow2.jpg';
 
 export const createCardStore = (attributes?: Partial<Card>) => {
-  const defaultAttributes: Card = {
+  const defaultCardAttributes: Card = {
     side: 'corp',
     faction: 'haas',
     kind: 'ice',
@@ -96,7 +126,7 @@ export const createCardStore = (attributes?: Partial<Card>) => {
     minDeckSize: 45,
     subtypes: ['bioroid', 'code_gate'],
     text: [
-      '<b>Lose [click]:</b> Break 1 subroutine. Only the Runner may use this ability.',
+      '**Lose [click]**: Break 1 subroutine. Only the Runner may use this ability.',
       '',
       '[subroutine] The Corp may draw 1 card.',
       '[subroutine] The Corp may draw 1 card.',
@@ -112,7 +142,20 @@ export const createCardStore = (attributes?: Partial<Card>) => {
     scale: 0.74
   }
 
-  const card = createMutable<Card>({ ...defaultAttributes, ...attributes });
+  const card = createMutable<Card>({ ...defaultCardAttributes, ...attributes });
 
-  return card;
+  // Wrap the store to persist changes to localStorage
+  return new Proxy(card, {
+    set(updatedCard, prop, value) {
+      updatedCard[prop] = value;
+      let saveTarget: Partial<Card> = updatedCard;
+      // We don't save images over 4MB
+      if (updatedCard.img.length > 4 * 1024 * 1024) {
+        const { img, ...rest } = updatedCard;
+        saveTarget = rest;
+      }
+      localStorage.setItem(CARD_LOCAL_STORAGE_KEY, JSON.stringify(saveTarget));
+      return true;
+    }
+  });
 };

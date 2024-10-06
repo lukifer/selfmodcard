@@ -13,26 +13,40 @@ label {
   margin-bottom: 15px;
 }
 .card-controls {
+  width: 375px;
   margin: 1.5rem 0;
   white-space: nowrap;
+  .right {
+    float: right;
+  }
+  label,
+  button,
+  a {
+    margin-right: 0.5rem;
+  }
+  span:last-child {
+    padding-left: 2px;
+  }
+  label {
+    font-weight: 500;
+    vertical-align: middle;
+    font-size: 14px;
+    padding-top: 7px;
+    height: 34px;
+    margin-left: 0.75rem;
+    margin-bottom: 0;
+  }
+  .select-wrapper {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  select {
+    width: auto;
+    padding: 6px;
+  }
 }
-.card-controls label,
-.card-controls button,
-.card-controls a {
-  margin-right: 0.5rem;
-}
-.card-controls span:last-child {
-  padding-left: 2px;
-}
-.card-controls label {
-  font-weight: 500;
-  vertical-align: middle;
-  font-size: 14px;
-  padding-top: 7px;
-  height: 34px;
-  margin-left: 0.75rem;
-  margin-bottom: 0;
-}
+
 .select-wrapper {
   position: relative;
   &:before {
@@ -43,15 +57,6 @@ label {
     right: 0.666rem;
     content: "\e252";
   }
-}
-.card-controls .select-wrapper {
-  width: auto;
-  display: inline-block;
-  vertical-align: middle;
-}
-.card-controls select {
-  width: auto;
-  padding: 6px;
 }
 
 @font-face {
@@ -227,8 +232,9 @@ footer {
 }
 
 .copy-clipboard {
-  width: 355px;
+  width: 375px;
   margin-top: 1rem;
+  padding: 0 1px;
   font-size: 1rem;
   i {
     margin-right: 0.25rem;
@@ -247,6 +253,9 @@ footer {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+  }
+  .trashing {
+    float: right;
   }
 }
 
