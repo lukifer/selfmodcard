@@ -100,9 +100,9 @@ export const CardView = (props: {
       <Show when={card.kind === 'identity'}>
         <div class="subtitle">{ card.subtitle }</div>
       </Show>
-      <div class="price outline center">{ card.price }</div>
+      <div class={`price outline center ${`${card.price}` === '1' ? 'one' : ''}`}>{ card.price }</div>
       <Show when={hasStrength(card)}>
-        <div class="strength outline center">{ card.strength }</div>
+        <div class={`strength outline center ${`${card.strength}` === '1' ? 'one' : ''}`}>{ card.strength }</div>
       </Show>
       <Show when={hasTrash(card) && /^[0-9]+$/.test(card.trash)}>
         <div class="trash center">{ card.trash }</div>
@@ -115,7 +115,7 @@ export const CardView = (props: {
         <div class="min-deck">{ card.minDeckSize }</div>
         <div class="max-influence">{ card.influence }</div>
       </Show>
-      <div class="type"><span class="kind">{ card.kind }:</span> { card.subtypes.join(' – ') }</div>
+      <div class="type"><span class="kind">{ card.kind }<Show when={card.subtypes.length > 0}>:</Show></span> { card.subtypes.join(' – ') }</div>
       <div class={`influence i${card.influence ?? 0}`}></div>
       <FitText class="main-content text" maxFontSize={14} overrideFontSize={fontSize} content={() => [
         `<p>${miniMarkdown(iconify(card.text, card.name)).split('\n\n').join('</p><p>')}</p>`,

@@ -1,5 +1,5 @@
 import './App.scss';
-import "@thisbeyond/solid-select/style.css";
+import '@thisbeyond/solid-select/style.css';
 
 import html2canvas from 'html2canvas';
 import { parse } from 'search-params'
@@ -55,7 +55,9 @@ export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
 
   img.onerror = (error) => {
     if (!/themind\.gg/.test(url)) {
-      const proxyUrl = `http://hack.themind.gg:2323/proxy?url=${encodeURIComponent(url)}`;
+      const { protocol } = location;
+      const port = protocol === 'http:' ? 2323 : 2332;
+      const proxyUrl = `${protocol}//hack.themind.gg:${port}/proxy?url=${encodeURIComponent(url)}`;
       console.error("Image load failed, trying proxied request", proxyUrl);
       loadImageAsDataUri(proxyUrl, onload);
     }
@@ -76,7 +78,7 @@ const App: Component = () => {
     if (storedCardJson) storedCard = JSON.parse(storedCardJson) as Partial<Card>;
   } catch(err) {}
 
-  const card = createCardStore(storedCard ?? {});
+  const card = createCardStore(storedCard ?? {}, () => { if (compressedCardData) setCompressedCardData('') });
 
   createEffect(async () => {
     if (!!searchParams.card) {
@@ -129,13 +131,13 @@ const App: Component = () => {
   return (
     <>
       <div>
+        <div class="page-header">
+          <h1>
+            Netrunner Card Creator
+          </h1>
+          <h6>Under development; adapted from <a href="http://cardcreator.grndl.net/">GRNDL Card Creator</a> by <a href="https://github.com/yonbergman/self-modifying-card">@yonbergman</a></h6>
+        </div>
         <div class="container">
-          <div class="page-header">
-            <h1>
-              Netrunner Card Creator
-            </h1>
-            <h6>Under development; adapted from <a href="http://cardcreator.grndl.net/">GRNDL Card Creator</a> by <a href="https://github.com/yonbergman/self-modifying-card">@yonbergman</a></h6>
-          </div>
           <div class="row">
             <div class="col-sm-7 form-view">
               <form class="form-horizontal" role="form">

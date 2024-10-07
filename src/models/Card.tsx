@@ -110,7 +110,7 @@ export function blankCard(card: Card) {
 const { location } = document;
 export const defaultImage = location.origin + location.pathname + 'img/jhow2.jpg';
 
-export const createCardStore = (attributes?: Partial<Card>) => {
+export const createCardStore = (attributes?: Partial<Card>, onChange: () => void) => {
   const defaultCardAttributes: Card = {
     side: 'corp',
     faction: 'haas',
@@ -155,6 +155,7 @@ export const createCardStore = (attributes?: Partial<Card>) => {
         saveTarget = rest;
       }
       localStorage.setItem(CARD_LOCAL_STORAGE_KEY, JSON.stringify(saveTarget));
+      onChange();
       return true;
     }
   });
