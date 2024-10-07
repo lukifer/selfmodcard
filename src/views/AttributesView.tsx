@@ -80,7 +80,14 @@ export const AttributesView = (props: { card: Card }) => {
 
   return (
     <div class="attributes">
-
+      
+      <TextAttribute
+        attribute="name"
+        label="Name"
+        card={card}
+        fullWidth
+      ></TextAttribute>
+      
       <SelectAttribute
         attribute="side"
         label="Side"
@@ -101,12 +108,6 @@ export const AttributesView = (props: { card: Card }) => {
         card={card}
         options={kindOpts}
       ></SelectAttribute>
-      
-      <TextAttribute
-        attribute="name"
-        label="Name"
-        card={card}
-      ></TextAttribute>
 
       <Show when={card.kind === 'identity'}>
         <TextAttribute

@@ -13,6 +13,7 @@ export type TextAttributeProps<T extends CardSelectAttribute> = {
   textarea?: boolean;
   rows?: number;
   info?: string | JSXElement;
+  fullWidth?: boolean;
 }
 
 export function TextAttribute<T extends CardSelectAttribute>(props: TextAttributeProps<T>) {
@@ -69,7 +70,7 @@ export function TextAttribute<T extends CardSelectAttribute>(props: TextAttribut
           </OverlayTrigger>
         </Show>
       </label>
-      <div class={props.textarea ? 'col-sm-9' : 'col-sm-5'}>
+      <div class={props.textarea || props.fullWidth ? 'col-sm-9' : 'col-sm-5'}>
         <Show when={!props.textarea}>
           <input 
             type={"text"}
