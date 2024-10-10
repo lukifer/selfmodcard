@@ -35,17 +35,24 @@ export const TomSelectWrapper: Component<TomSelectProps> = (props) => {
       placeholder: 'Subtypes',
       plugins: ['remove_button', 'dropdown_input'],
       onOptionAdd: (value: string, item: HTMLElement) => {
-        console.log('onOptionAdd', value, item);
+        // console.log('onOptionAdd', value, item);
         props.onOptionAdd?.(value, item);
       },
+      // onOptionRemove: (val: string) => {
+      //   console.log('onOptionRemove', val);
+      // },
       onChange: (values: string[]) => {
+        // console.log('onChange', values, tomSelectInstance.control_input);
+        // tomSelectInstance.setTextboxValue('');
+        tomSelectInstance.control_input.value = '';
+        tomSelectInstance.close();
         props.onChange?.(values);
       }
     });
 
     // Sync external value changes with TomSelect
     if (props.value !== undefined) {
-      tomSelectInstance.setValue(props.value);
+      tomSelectInstance.setValue([...props.value].map(x => x.toLowerCase()));
     }
 
     // Cleanup when the component is unmounted

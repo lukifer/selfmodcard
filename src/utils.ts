@@ -7,6 +7,12 @@ export function miniMarkdown(text: string): string {
   return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\*(.*?)\*/g, '<i>$1</i>');
 }
 
+export function ucFirst(str: string) {
+  return str.split(' ').map(s =>
+    `${s.slice(0, 1).toLocaleUpperCase()}${s.slice(1)}`
+  ).join(' ');
+}
+
 export async function zip(input: string) {
   const encoder = new TextEncoder();
   const data = encoder.encode(input);

@@ -165,6 +165,7 @@ export const AttributesView = (props: { card: Card }) => {
       <Show when={hasMU(card)}>
         <NumberAttribute
           attribute="mu"
+          label="MU"
           card={card}
           min={0}
         />
@@ -216,9 +217,9 @@ export const AttributesView = (props: { card: Card }) => {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         {null && JSON.stringify(card)}
-      </div>
+      </div> */}
     </div>
   );
 };
