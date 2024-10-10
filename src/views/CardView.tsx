@@ -97,7 +97,7 @@ export const CardView = (props: {
       <img src={imageUri(card)} draggable="false" />
 
       <Show when={card.kind === 'identity' && card.side === 'runner'}>
-        <div class="runner identity-img" style={{
+        <div class="runner-identity-img" style={{
           'background-image': `url(${card.img})`,
           'background-position': `${card.x}px ${card.y}px`,
           'background-size': `${card.scale * 100.0}%`,          
