@@ -30,15 +30,10 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
   const [options, setOptions] = createSignal(populateCustomOptions(subtypesOptions, card.subtypes));
 
   const onOptionAdd = (value: string, data: unknown) => {
-    // console.log('onOptionAdd', {
-    //   value,
-    //   text: ucFirst(value),
-    // });
-    // console.log('onOptionAdd subtypesOptions', subtypesOptions);
     setOptions([...subtypesOptions, {
       value,
       text: ucFirst(value),
-    }].sort((a, b) => a.text > b.text ? 1 : -1))
+    }]);
   };
 
   // const handleRemove = (value: string) => {
@@ -46,10 +41,9 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
   // };
 
   const onChange = (values: string[]) => {
-    // console.log('onChange', values);
-    props.card.subtypes = values.sort().map(subtype => {
-      return subtypesOptions.find(({ value }) => value === subtype)?.text ?? ucFirst(subtype)
-    });
+    props.card.subtypes = values.map(subtype => (
+      subtypesOptions.find(({ value }) => value === subtype)?.text ?? ucFirst(subtype)
+    ));
   };
 
   const attribute = 'subtypes';
@@ -59,8 +53,7 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
       <label for={attribute} class={`col-sm-3 control-label ${attribute}`}>
         Subtypes
       </label>
-      <div class="col-sm-9">
-        {/* {(card.subtypes ?? []).join(',')} */}
+      <div class={`col-sm-9 ${card.subtypes.length > 0 ? 'hide-placeholder' : ''}`}>
         <TomSelectWrapper
           id={attribute}
           value={card.subtypes}

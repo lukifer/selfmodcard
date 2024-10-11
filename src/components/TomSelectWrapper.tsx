@@ -28,25 +28,21 @@ export const TomSelectWrapper: Component<TomSelectProps> = (props) => {
     tomSelectInstance = new TomSelect(selectElement, {
       options: props.options,
       create: true,
-      createOnBlur: true,
-      hideSelected: false,
+      createOnBlur: false,
+      hideSelected: true,
       maxOptions: null,
       openOnFocus: true,
-      placeholder: 'Subtypes',
-      plugins: ['remove_button', 'dropdown_input'],
+      placeholder: 'None',
+      plugins: ['remove_button', 'drag_drop', 'caret_position', 'input_autogrow'],
       onOptionAdd: (value: string, item: HTMLElement) => {
-        // console.log('onOptionAdd', value, item);
         props.onOptionAdd?.(value, item);
       },
       // onOptionRemove: (val: string) => {
       //   console.log('onOptionRemove', val);
       // },
       onChange: (values: string[]) => {
-        // console.log('onChange', values, tomSelectInstance.control_input);
-        // tomSelectInstance.setTextboxValue('');
         tomSelectInstance.control_input.value = '';
-        tomSelectInstance.close();
-        props.onChange?.(values);
+        props.onChange?.([...values]);
       }
     });
 
