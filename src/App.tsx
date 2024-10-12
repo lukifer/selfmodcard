@@ -66,8 +66,11 @@ export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
 
 const App: Component = () => {
   const [imageData, setImageData] = createSignal('');
-  const [fontSize, setFontSize] = createSignal<string>('auto');
   const [compressedCardData, setCompressedCardData] = createSignal<string>('');
+
+  const setFontSize = (val: string) => {
+    card.fontSize = val === 'auto' ? 'auto' : (parseFloat(val) ?? 'auto')
+  }
 
   const { location } = document;
   const searchParams = parse(location.search);
@@ -145,7 +148,7 @@ const App: Component = () => {
               </form>
             </div>
             <div class="col-sm-5 card-view">
-              <CardView card={card} fontSize={fontSize} />
+              <CardView card={card} />
               <div class="copy-clipboard">
                 <a href="javascript:void(0);" onClick={copyCardData}>
                   <i class="glyphicon glyphicon-share"></i>
@@ -184,9 +187,14 @@ const App: Component = () => {
                     Text Size:
                   </label>
                   <div class="select-wrapper">
-                    <select id="font-size" class="form-control" value={fontSize()} onInput={(({ target }) => {
-                      setFontSize(target.value);
-                    })}>
+                    <select
+                      id="font-size"
+                      class="form-control"
+                      value={card.fontSize === 'auto' ? 'auto' : `${card.fontSize}px`}
+                      onInput={({ target }) => {
+                        setFontSize(target.value);
+                      }}
+                    >
                       {fontSizes.map((size) => (
                         <option value={size}>
                           {`${size}`}

@@ -77,6 +77,7 @@ export const AttributesView = (props: { card: Card }) => {
 
   const factionOpts = createMemo(() => card.side === 'runner' ? opts(runnerFactions) : opts(corpFactions));
   const kindOpts = createMemo(() => card.side === 'runner' ? opts(runnerKinds) : opts(corpKinds));
+  const strengthLabel = createMemo<string>(() => strengthMeaning[card.kind]);
 
   return (
     <div class="attributes">
@@ -119,14 +120,14 @@ export const AttributesView = (props: { card: Card }) => {
         <NumberAttribute
           attribute="minDeckSize"
           card={card}
-          label="Minimum Deck Size"
+          label={() => 'Minimum Deck Size'}
           min={0}
         />
 
         <NumberAttribute
           attribute="influence"
           card={card}
-          label="Influence"
+          label={() => 'Influence'}
           min={0}
         />
       </Show>
@@ -148,7 +149,7 @@ export const AttributesView = (props: { card: Card }) => {
       <NumberAttribute
         attribute="price"
         card={card}
-        label="Cost"
+        label={() => 'Cost'}
         min={0}
         placeholder="X"
       />
@@ -157,7 +158,7 @@ export const AttributesView = (props: { card: Card }) => {
         <NumberAttribute
           attribute="influence"
           card={card}
-          label="Influence"
+          label={() => 'Influence'}
           min={0}
           max={5}
         />
@@ -166,7 +167,7 @@ export const AttributesView = (props: { card: Card }) => {
       <Show when={hasMU(card)}>
         <NumberAttribute
           attribute="mu"
-          label="MU"
+          label={() => 'MU'}
           card={card}
           min={0}
         />
@@ -176,7 +177,7 @@ export const AttributesView = (props: { card: Card }) => {
         <NumberAttribute
           attribute="strength"
           card={card}
-          label={strengthMeaning[card.kind]}
+          label={strengthLabel}
         ></NumberAttribute>
       </Show>
 
@@ -184,7 +185,8 @@ export const AttributesView = (props: { card: Card }) => {
         <NumberAttribute
           attribute="trash"
           card={card}
-          label="Trash Cost"
+          label={() => 'Trash Cost'}
+          placeholder="Not Trashable"
           min={0}
         ></NumberAttribute>
       </Show>

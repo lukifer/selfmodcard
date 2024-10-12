@@ -372,13 +372,17 @@ footer {
     overflow: hidden;
     @include text();
     white-space: pre-wrap;
+    &.text p {
+      margin-bottom: 0.5rem;
+    }
     .fluff {
-      margin-top: 0.5rem;
       font-style: italic;
       font-size: 90%;
     }
-    .text p {
-      margin-bottom: 0.5rem;
+    .fluff-separator {
+      max-height: 0.5rem;
+      min-height: 0.5rem;
+      margin-bottom: 0 !important;
     }
   }
   .mu, .link, .min-deck, .max-influence, .subtitle {

@@ -13,6 +13,11 @@ export function ucFirst(str: string) {
   ).join(' ');
 }
 
+export function paragraphize(txt: string, pclass: string = '') {
+  const classtxt = pclass ? ` class="${pclass}"` : '';
+  return `<p${classtxt}>${txt.split('\n\n').join(`</p><p${classtxt}>`)}</p>`;
+}
+
 export async function zip(input: string) {
   const encoder = new TextEncoder();
   const data = encoder.encode(input);

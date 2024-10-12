@@ -1,9 +1,9 @@
-import { Accessor, Show, createSignal } from 'solid-js';
+import { Show, createSignal } from 'solid-js';
 
 import { Card, icons, imageUri } from '../models/Card';
 import { hasStrength, hasTrash } from './AttributesView';
 import { FitText } from '../components/FitText';
-import { miniMarkdown } from '../utils';
+import { miniMarkdown, paragraphize } from '../utils';
 
 export const iconRegexes = Object.entries(icons).reduce((regexes, [icon, strs]: [string, string[]]) => {
   if (icon) regexes.push([icon, new RegExp(strs.map(s =>
@@ -22,9 +22,8 @@ const zoomIntensity = 1.03;
 
 export const CardView = (props: {
   card: Card
-  fontSize: Accessor<string>
 }) => {
-  const { card, fontSize } = props;
+  const { card } = props;
   const [lastX, setLastX] = createSignal(0);
   const [lastY, setLastY] = createSignal(0);
   const [cardStartX, setCardStartX] = createSignal(0);
@@ -129,10 +128,11 @@ export const CardView = (props: {
       </Show>
       <div class="type"><span class="kind">{ card.kind }<Show when={card.subtypes.length > 0}>:</Show></span> { card.subtypes.join(' – ') }</div>
       <div class={`influence i${card.influence ?? 0}`}></div>
-      <FitText class="main-content text" maxFontSize={14} overrideFontSize={fontSize} content={() => [
-        `<p>${miniMarkdown(iconify(card.text, card.name)).split('\n\n').join('</p><p>')}</p>`,
-        `<p class="fluff">${card.fluff}</p>`
-      ].join('\n')}>
+      <FitText class="main-content text" maxFontSize={14} card={card} content={() => [
+        paragraphize(miniMarkdown(iconify(card.text, card.name))),
+        (card.fluff ? '<p class="fluff-separator">&nbsp;</p>' : ''),
+        paragraphize(miniMarkdown(card.fluff), 'fluff'),
+      ].join('')}>
       </FitText>
     </div>
   )

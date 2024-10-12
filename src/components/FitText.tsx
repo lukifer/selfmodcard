@@ -1,24 +1,25 @@
-import { Accessor, createEffect } from 'solid-js';
+import { createEffect } from 'solid-js';
 import textFit from 'textfit';
+
+import { Card } from '../models/Card';
 
 type FitTextProps = {
   content: () => string;
   class?: string;
   maxFontSize: number;
-  overrideFontSize?: Accessor<string>;
+  card: Card;
 }
 
 export const FitText = (props: FitTextProps) => {
-  const { maxFontSize, overrideFontSize } = props;
+  const { card, maxFontSize } = props;
 
   let textRef: HTMLDivElement | undefined;
 
   createEffect(() => {
     props.content();
-    const fontSize = overrideFontSize();
-    const textFitForceFontSize = fontSize === 'auto' ? {} : {
-      minFontSize: parseFloat(fontSize),
-      maxFontSize: parseFloat(fontSize),
+    const textFitForceFontSize = card.fontSize === 'auto' ? {} : {
+      minFontSize: card.fontSize,
+      maxFontSize: card.fontSize,
     };
     textFit(textRef, {
       maxFontSize,

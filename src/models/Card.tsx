@@ -35,6 +35,7 @@ export type Card = {
   scale: number
   x: number;
   y: number;
+  fontSize: number | 'auto';
 };
 
 export const icons = {
@@ -100,7 +101,8 @@ export function blankCard(card: Card) {
     imgUrl: '',
     x: 0,
     y: 0,
-    scale: 1.0
+    scale: 1.0,
+    fontSize: 'auto'
   }
   Object.keys(blank).forEach((k) => {
     card[k] = blank[k];
@@ -110,7 +112,7 @@ export function blankCard(card: Card) {
 const { location } = document;
 export const defaultImage = location.origin + location.pathname + 'img/jhow2.jpg';
 
-export const createCardStore = (attributes?: Partial<Card>, onChange: () => void) => {
+export const createCardStore = (attributes: Partial<Card>, onChange: () => void) => {
   const defaultCardAttributes: Card = {
     side: 'corp',
     faction: 'haas',
@@ -139,7 +141,8 @@ export const createCardStore = (attributes?: Partial<Card>, onChange: () => void
     imgUrl: defaultImage,
     x: 65,
     y: 275,
-    scale: 0.74
+    scale: 0.74,
+    fontSize: 'auto'
   }
 
   const card = createMutable<Card>({ ...defaultCardAttributes, ...attributes });
