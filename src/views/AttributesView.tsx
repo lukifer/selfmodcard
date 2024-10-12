@@ -150,6 +150,7 @@ export const AttributesView = (props: { card: Card }) => {
         card={card}
         label="Cost"
         min={0}
+        placeholder="X"
       />
 
       <Show when={hasInfluence(card)}>

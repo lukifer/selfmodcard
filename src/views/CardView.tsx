@@ -108,9 +108,13 @@ export const CardView = (props: {
       <Show when={card.kind === 'identity'}>
         <div class="subtitle">{ card.subtitle }</div>
       </Show>
-      <div class={`price outline center ${`${card.price}` === '1' ? 'one' : ''}`}>{ card.price }</div>
+      <div class={`price outline center ${`${card.price}` === '1' ? 'one' : ''}`}>
+        { card.price === '' ? 'X' : card.price }
+      </div>
       <Show when={hasStrength(card)}>
-        <div class={`strength outline center ${`${card.strength}` === '1' ? 'one' : ''}`}>{ card.strength }</div>
+        <div class={`strength outline center ${`${card.strength}` === '1' ? 'one' : ''}`}>
+          { card.strength === '' && card.kind === 'program' ? '—' : card.strength }
+        </div>
       </Show>
       <Show when={hasTrash(card) && /^[0-9]+$/.test(card.trash)}>
         <div class="trash center">{ card.trash }</div>

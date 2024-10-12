@@ -9,10 +9,11 @@ type NumberAttributeProps<T extends CardSelectAttribute> = {
   label?: string;
   min?: number;
   max?: number;
+  placeholder?: string;
 }
 
 export function NumberAttribute<T extends CardSelectAttribute>(props: NumberAttributeProps<T>) {
-  const { attribute, card, label, max, min } = props;
+  const { attribute, card, label, max, min, placeholder } = props;
 
   const updateContent = (ev: Event) => {
     const el = ev.target as HTMLInputElement;
@@ -38,7 +39,7 @@ export function NumberAttribute<T extends CardSelectAttribute>(props: NumberAttr
           type={"number"}
           class="form-control" 
           id={attribute}
-          placeholder={label ?? attribute}
+          placeholder={placeholder ?? label ?? attribute}
           value={card[attribute].toString()}
           ref={inputRef}
           min={min}
