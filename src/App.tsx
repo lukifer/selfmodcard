@@ -35,7 +35,7 @@ async function cardDataFromQueryString(cardData: string): Promise<Partial<Card>>
 export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
   const img = document.createElement('img');
   img.crossOrigin = 'anonymous';
-  img.src = url;
+  img.src = url.replace('hack.themind.gg', 'img.themind.gg');
 
   img.onload = () => {
     const canvas = document.createElement('canvas');
@@ -91,7 +91,7 @@ const App: Component = () => {
       const cardData = await cardDataFromQueryString(`${searchParams.card}`);
       Object.keys(cardData).forEach(k => {
         // if (k === 'subtypes' && cardData[k]) console.log('query string subtypes: '+cardData[k].join(','));
-        card[k] = cardData[k];
+        card[k] = k === 'imgUrl' ? cardData[k].replace('hack.themind.gg', 'img.themind.gg') : cardData[k];
       });
     }
 
