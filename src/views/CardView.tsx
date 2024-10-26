@@ -107,7 +107,7 @@ export const CardView = (props: {
       <Show when={card.kind === 'identity'}>
         <div class="subtitle">{ card.subtitle }</div>
       </Show>
-      <div class={`price outline center ${`${card.price}` === '1' ? 'one' : ''}`}>
+      <div class={`price outline center ${['1', '11'].includes(`${card.price}`) ? 'one' : ''} ${`${card.price}`.length > 1 ? 'ten' : ''}`}>
         { card.price === '' ? 'X' : card.price }
       </div>
       <Show when={hasStrength(card)}>
@@ -119,7 +119,7 @@ export const CardView = (props: {
         <div class="trash center">{ card.trash }</div>
       </Show>
       <Show when={card.kind === 'program'}>
-        <div class="mu center">{ card.mu }</div>
+        <div class={`mu center ${`${card.strength}` === '1' ? 'one' : ''}`}>{ card.mu }</div>
       </Show>
 
       <Show when={card.kind === 'identity'}>
@@ -129,7 +129,7 @@ export const CardView = (props: {
       <div class="type"><span class="kind">{ card.kind }<Show when={card.subtypes.length > 0}>:</Show></span> { card.subtypes.join(' – ') }</div>
       <div class={`influence i${card.influence ?? 0}`}></div>
       <FitText class="main-content text" maxFontSize={14} card={card} content={() => [
-        paragraphize(miniMarkdown(iconify(card.text, card.name))),
+        paragraphize(miniMarkdown(iconify(card.text ?? '', card.name))),
         (card.fluff ? '<p class="fluff-separator">&nbsp;</p>' : ''),
         paragraphize(miniMarkdown(card.fluff), 'fluff'),
       ].join('')}>

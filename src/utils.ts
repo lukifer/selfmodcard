@@ -13,6 +13,12 @@ export function ucFirst(str: string) {
   ).join(' ');
 }
 
+// DEPRECATED, using the formatted name as the key now
+export function subtypeKey(str: string) {
+  // return str.toLowerCase().replace(/ /g, '_');
+  return `${str}`;
+}
+
 export function paragraphize(txt: string, pclass: string = '') {
   const classtxt = pclass ? ` class="${pclass}"` : '';
   return `<p${classtxt}>${txt.split('\n\n').join(`</p><p${classtxt}>`)}</p>`;

@@ -3,22 +3,26 @@ import { createSignal } from 'solid-js';
 import { TomSelectOption, TomSelectWrapper } from './TomSelectWrapper';
 import { Card } from '../models/Card';
 import subtypes from '../models/subtypes.json';
-import { ucFirst } from '../utils';
+import { subtypeKey, ucFirst } from '../utils';
 
 const subtypesOptions = subtypes.data.map<TomSelectOption>((subtype) => ({
-  value: subtype.id,
+  // value: subtype.id,
+  value: subtype.attributes.name,
   text: subtype.attributes.name
 }))
 
 const populateCustomOptions = (options: TomSelectOption[], cardOptions: Card['subtypes']) => {
-  const missingOptions = cardOptions.map(o => o.toLowerCase()).filter(cardOption => !options.find(o => o.value === cardOption));
-  return [
-    ...options,
-    ...missingOptions.map(value => ({
-      value,
-      text: ucFirst(value)
-    }))
-  ]
+  return cardOptions.reduce((updatedOptions, text) => {
+    const value = subtypeKey(text);
+    if (options.find(o => o.value === value))
+      return updatedOptions;
+    return [
+      ...updatedOptions, {
+        value,
+        text,
+      }
+    ]
+  }, options);
 }
 
 type SubtypesAttributeProps = {
@@ -29,11 +33,15 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
   const { card } = props;
   const [options, setOptions] = createSignal(populateCustomOptions(subtypesOptions, card.subtypes));
 
-  const onOptionAdd = (value: string, data: unknown) => {
-    setOptions([...subtypesOptions, {
-      value,
-      text: ucFirst(value),
-    }]);
+  const onOptionAdd = (value: string, data: { text: string }) => {
+    const text = subtypeKey(data.text);
+    const existingOptions = options();
+    if (!existingOptions.find(o => subtypeKey(o.text) === text)) {
+      setOptions([...existingOptions, {
+        value,
+        text: data.text,
+      }]);
+    }
   };
 
   // const handleRemove = (value: string) => {
@@ -41,9 +49,11 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
   // };
 
   const onChange = (values: string[]) => {
-    props.card.subtypes = values.map(subtype => (
-      subtypesOptions.find(({ value }) => value === subtype)?.text ?? ucFirst(subtype)
-    ));
+    props.card.subtypes = values.map(subtype => {
+      const opt = options().find(({ value }) => subtypeKey(value) === subtypeKey(subtype));
+      // if (!opt) console.log('onChange failed', values, [...options()]);
+      return opt?.text ?? ucFirst(subtype);
+    });
   };
 
   const attribute = 'subtypes';
@@ -57,7 +67,7 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
         <TomSelectWrapper
           id={attribute}
           value={card.subtypes}
-          options={options()} 
+          options={options} 
           onOptionAdd={onOptionAdd} 
           onChange={onChange}
         />

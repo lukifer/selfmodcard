@@ -1,11 +1,13 @@
-import { createMemo, Show } from "solid-js";
+import { createEffect, createMemo, Show } from "solid-js";
 
 import { SelectAttribute } from "../components/SelectAttribute";
 import { SubtypesAttribute } from "../components/SubtypesAttribute";
 import { NumberAttribute } from '../components/NumberAttribute';
 import { TextAttribute } from "../components/TextAttribute";
 import { loadImageAsDataUri } from '../App';
-import { capitalizeFirst } from '../utils';
+import { capitalizeFirst, subtypeKey } from '../utils';
+
+// import onrjson from '../onr.json'
 
 import {
   Card,
@@ -15,6 +17,9 @@ import {
   runnerFactions,
   runnerKinds,
   strengthMeaning,
+
+  Side,
+  Faction,
 } from "../models/Card"
 
 export const hasStrength = (card: Card) => {
@@ -78,6 +83,43 @@ export const AttributesView = (props: { card: Card }) => {
   const factionOpts = createMemo(() => card.side === 'runner' ? opts(runnerFactions) : opts(corpFactions));
   const kindOpts = createMemo(() => card.side === 'runner' ? opts(runnerKinds) : opts(corpKinds));
   const strengthLabel = createMemo<string>(() => strengthMeaning[card.kind]);
+
+  let lastCardName = '';
+  // createEffect(() => {
+  //   if (onrjson[card.name] && card.name !== lastCardName) {
+  //     lastCardName = card.name;
+  //     const o = onrjson[card.name];
+  //     card.text = o.Text;
+  //     card.side = `${o.Side}`.toLowerCase() as Side;
+  //     if (o.Faction) switch (o.Faction) {
+  //       case 'HB': card.faction = 'haas'; break;
+  //       default: card.faction = `${o.Faction}`.toLowerCase() as Faction;
+  //     }
+  //     switch (o.Type) {
+  //       case 'U': card.kind = 'upgrade'; break;
+  //       case 'A': card.kind = 'agenda'; break;
+  //       case 'R': card.kind = 'resource'; break;
+  //       case 'M': card.kind = 'program'; break;
+  //       case 'H': card.kind = 'hardware'; break;
+  //       case 'N': card.kind = 'asset'; break;
+  //       case 'I': card.kind = 'ice'; break;
+  //       case 'O': card.kind = 'operation'; break;
+  //       case 'P': card.kind = 'event'; break;
+  //     }
+  //     card.influence = parseInt(o.Inf) ?? 0;
+  //     card.subtypes = o['Subtypes (NSG)'] ? `${o['Subtypes (NSG)']}`.split(',').map(subtypeKey) : [];
+  //     if (o.Art) {
+  //       card.imgUrl = o.Art.replace('https', 'http').replace('2332', '2323');
+  //       if (card.imgUrl && /^http/.test(card.imgUrl)) {
+  //         loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
+  //           card.img = dataUri;
+  //         })
+  //       }
+  //     }
+  //     card.fluff = o.Flavor ?? '';
+  //     if (o['$']) card.price = o['$'];
+  //   }
+  // })
 
   return (
     <div class="attributes">
@@ -159,6 +201,7 @@ export const AttributesView = (props: { card: Card }) => {
           attribute="influence"
           card={card}
           label={() => 'Influence'}
+          placeholder="No Influence Cost"
           min={0}
           max={5}
         />
@@ -178,6 +221,7 @@ export const AttributesView = (props: { card: Card }) => {
           attribute="strength"
           card={card}
           label={strengthLabel}
+          placeholder="-"
         ></NumberAttribute>
       </Show>
 

@@ -158,6 +158,7 @@ export const createCardStore = (attributes: Partial<Card>, onChange: () => void)
         saveTarget = rest;
       }
       localStorage.setItem(CARD_LOCAL_STORAGE_KEY, JSON.stringify(saveTarget));
+      // localStorage.setItem(CARD_LOCAL_STORAGE_KEY, JSON.stringify(saveTarget).replace('http://hack', 'https://hack').replace('2323', '2332'));
       onChange();
       return true;
     }

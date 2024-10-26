@@ -230,6 +230,7 @@ label {
 @mixin title() {
   font-family: 'Cinzel', serif;
   text-transform: capitalize;
+  white-space: nowrap;
 }
 @mixin type() {
   font-family: 'Lato', sans-serif;
@@ -348,6 +349,9 @@ footer {
   .strength.one {
     padding-right: 0.5rem;
   }
+  .mu.one {
+    padding-right: 0.25rem;
+  }
   .price, .strength, .link, .min-deck, .max-influence {
     width: 10%;
   }
@@ -423,6 +427,11 @@ footer {
       font-weight: bold;
       color: white;
       z-index: 3;
+      white-space: nowrap;
+    }
+    .price.ten {
+      font-size: 28px;
+      top: 2.1%;
     }
     .name {
       top: 4.1%;

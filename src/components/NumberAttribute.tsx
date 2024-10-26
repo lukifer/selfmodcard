@@ -40,7 +40,7 @@ export function NumberAttribute<T extends CardSelectAttribute>(props: NumberAttr
           class="form-control" 
           id={attribute}
           placeholder={placeholder ?? label() ?? attribute}
-          value={card[attribute].toString()}
+          value={card[attribute]?.toString() ?? ''}
           ref={inputRef}
           min={min}
           max={max}

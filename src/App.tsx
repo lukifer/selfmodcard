@@ -3,6 +3,7 @@ import '@thisbeyond/solid-select/style.css';
 
 import html2canvas from 'html2canvas';
 import { parse } from 'search-params'
+// import onrjson from './onr.json'
 
 import { Component, Show, createSignal, createEffect } from 'solid-js';
 
@@ -72,6 +73,8 @@ const App: Component = () => {
     card.fontSize = val === 'auto' ? 'auto' : (parseFloat(val) ?? 'auto')
   }
 
+  // (window as any).ONR = onrjson;
+
   const { location } = document;
   const searchParams = parse(location.search);
 
@@ -87,6 +90,7 @@ const App: Component = () => {
     if (!!searchParams.card) {
       const cardData = await cardDataFromQueryString(`${searchParams.card}`);
       Object.keys(cardData).forEach(k => {
+        // if (k === 'subtypes' && cardData[k]) console.log('query string subtypes: '+cardData[k].join(','));
         card[k] = cardData[k];
       });
     }
@@ -118,8 +122,10 @@ const App: Component = () => {
   async function copyCardData() {
     const { img, ...cardData } = card;
     const cardJson = JSON.stringify(cardData);
+    // const cardJson = JSON.stringify(cardData).replace('http://hack', 'https://hack').replace('2323', '2332');
     const zippedCard = await zip(cardJson);
     await navigator.clipboard.writeText(location.origin + location.pathname + '?card=' + zippedCard);
+    // await navigator.clipboard.writeText('https://lukifer.github.io' + location.pathname + '?card=' + zippedCard);
     setCompressedCardData(zippedCard);
   }
 
