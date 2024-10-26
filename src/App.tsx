@@ -58,7 +58,7 @@ export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
     if (!/themind\.gg/.test(url)) {
       const { protocol } = location;
       const port = protocol === 'http:' ? 2323 : 2332;
-      const proxyUrl = `${protocol}//hack.themind.gg:${port}/proxy?url=${encodeURIComponent(url)}`;
+      const proxyUrl = `${protocol}//img.themind.gg:${port}/proxy?url=${encodeURIComponent(url)}`;
       console.error("Image load failed, trying proxied request", proxyUrl);
       loadImageAsDataUri(proxyUrl, onload);
     }
@@ -94,13 +94,13 @@ const App: Component = () => {
         card[k] = cardData[k];
       });
     }
-  });
 
-  if (card.imgUrl && /^http/.test(card.imgUrl)) {
-    loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
-      card.img = dataUri;
-    })
-  }
+    if (card.imgUrl && /^http/.test(card.imgUrl)) {
+      loadImageAsDataUri(card.imgUrl, (dataUri: string) => {
+        card.img = dataUri;
+      })
+    }
+  });
 
   async function generateImage(): Promise<void> {
     const cardNode = document.querySelector<HTMLElement>('.card');
