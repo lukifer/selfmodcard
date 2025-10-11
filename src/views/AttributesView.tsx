@@ -130,6 +130,18 @@ export const AttributesView = (props: { card: Card }) => {
         card={card}
         fullWidth
       ></TextAttribute>
+
+      <Show when={card.kind !== 'identity'}>
+        <div class="form-group checkbox">
+          <div class="col-sm-3" />
+          <div class="col-sm-9">
+            <label>
+              <input type="checkbox" name="unique" value="unique" checked={card.unique} onChange={() => card.unique = !card.unique} />
+              Unique
+            </label>
+          </div>
+        </div>
+      </Show>
       
       <SelectAttribute
         attribute="side"
@@ -172,18 +184,6 @@ export const AttributesView = (props: { card: Card }) => {
           label={() => 'Influence'}
           min={0}
         />
-      </Show>
-
-      <Show when={card.kind !== 'identity'}>
-        <div class="form-group checkbox">
-          <div class="col-sm-3" />
-          <div class="col-sm-9">
-            <label>
-              <input type="checkbox" name="unique" value="unique" checked={card.unique} onChange={() => card.unique = !card.unique} />
-              Is Unique
-            </label>
-          </div>
-        </div>
       </Show>
 
       <SubtypesAttribute card={card} />
