@@ -4,7 +4,7 @@
 .page-header {
   position: relative;
   margin: 0;
-  padding: 1rem 2rem 0.5rem;
+  padding: 1rem 2rem 0;
 
   display: flex;
   flex-wrap: wrap;
@@ -21,11 +21,17 @@
     flex: 0 1 auto;
   }
   h6 {
+    font-size: 14px;
     text-align: right;
     flex: 1;
     color: black;
     text-shadow: white 1px 1px 1px;
     white-space: nowrap;
+
+    img {
+      transform: translateY(-1px);
+      margin-right: 2px;
+    }
   }
 
   ::before {
@@ -37,6 +43,23 @@
     height: 6px;
     background: linear-gradient(to bottom, rgb(204, 204, 204), rgb(150, 150, 150));
     pointer-events: none;
+  }
+}
+#footer {
+  margin: 0 2em 1em;
+  font-family: "Orbitron", sans-serif;
+  font-size: 12px;
+
+  hr {
+    margin-bottom: 0.5rem;
+  }
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .templates, .original {
+    flex: 0 0 auto;
   }
 }
 .row {
@@ -229,6 +252,7 @@ label {
 }
 @mixin title() {
   font-family: 'Cinzel', serif;
+  font-weight: bold;
   text-transform: capitalize;
   white-space: nowrap;
 }
@@ -328,6 +352,7 @@ footer {
   img {
     width: 100%;
     background: transparent;
+    user-select: none;
   }
   > div {
     position: absolute;
@@ -354,6 +379,10 @@ footer {
   }
   .price, .strength, .link, .min-deck, .max-influence {
     width: 10%;
+  }
+  .name {
+    transform: translateY(-50%);
+    // border-right: 1px solid gray; // debugging
   }
   .name, .subtitle {
     @include title();
@@ -434,10 +463,10 @@ footer {
       top: 2.1%;
     }
     .name {
-      top: 4.1%;
+      top: 6.3%;
       left: 7.4%;
-      font-size: 18px;
-      max-width: 74%;
+      min-width: 75.3%;
+      max-width: 75.3%;
       white-space: nowrap;
       overflow: hidden;
     }
@@ -477,9 +506,10 @@ footer {
 
   &.operation {
     .name {
-      font-size: 16px;
-      top: 3.2%;
+      top: 5.2%;
       left: 24%;
+      min-width: 74%;
+      max-width: 74%;
     }
     .price {
       font-size: 29px;
@@ -522,10 +552,11 @@ footer {
 
   &.upgrade {
     .name {
-      font-size: 16px;
-      top: 50.4%;
+      top: 52.3%;
       left: 9%;
       font-weight: normal;
+      min-width: 81%;
+      max-width: 81%;
     }
     .price {
       font-size: 29px;
@@ -565,9 +596,10 @@ footer {
 
   &.asset {
     .name {
-      font-size: 16px;
-      top: 50.5%;
+      top: 52.4%;
       left: 9.5%;
+      min-width: 87%;
+      max-width: 87%;
       font-weight: normal;
     }
     .price {
@@ -610,9 +642,10 @@ footer {
 
   &.ice {
     .name {
-      font-size: 18px;
-      top: 3.2%;
+      top: 5.6%;
       left: 23.8%;
+      max-width: 70%;
+      min-width: 70%;
     }
     .price {
       font-size: 29px;
@@ -665,9 +698,10 @@ footer {
 
   &.event {
     .name {
-      font-size: 16px;
-      top: 2.6%;
+      top: 4.7%;
       left: 22.3%;
+      max-width: 72%;
+      min-width: 72%;
     }
     .price {
       font-size: 29px;
@@ -701,9 +735,10 @@ footer {
 
   &.hardware {
     .name {
-      font-size: 16px;
-      top: 50.8%;
-      left: 19.7%;
+      top: 53%;
+      left: 19.4%;
+      max-width: 73%;
+      min-width: 73%;
     }
     .price {
       font-size: 29px;
@@ -740,9 +775,10 @@ footer {
 
   &.program {
     .name {
-      font-size: 16px;
-      top: 46.7%;
-      left: 5.7%;
+      top: 48.9%;
+      left: 4.2%;
+      max-width: 75%;
+      min-width: 75%;
     }
     .price {
       font-size: 29px;
@@ -795,9 +831,10 @@ footer {
 
   &.resource {
     .name {
-      font-size: 16px;
-      top: 2.6%;
+      top: 4.7%;
       left: 21.8%;
+      max-width: 76%;
+      min-width: 76%;
     }
     .price {
       font-size: 29px;
@@ -854,14 +891,20 @@ footer {
     }
     .name {
       left: 15.5%;
-      top: 5.75%;
-      font-weight: normal;
+      top: 7.9%;
+      max-width: 72%;
+      min-width: 72%;
+    }
+    &.neutral .name {
+      left: 4%;
     }
     .subtitle {
       left: 4%;
       top: 11%;
       font-weight: normal;
       display: block;
+      max-width: 77%;
+      min-width: 77%;
     }
     .type {
       top: 73.75%;
@@ -897,11 +940,15 @@ footer {
     &.runner {
       .name {
         left: 25%;
-        top: 3.5%;
+        top: 5.4%;
+        max-width: 65%;
+        min-width: 65%;
       }
       .subtitle {
         left: 31%;
         top: 8.5%;
+        max-width: 67%;
+        min-width: 67%;
       }
       .type {
         top: 73.25%;
@@ -988,6 +1035,19 @@ $select-shadow-input-focus:			inset 0 1px 2px rgba(0, 0, 0, 15%) !default;
   }
 }
 
+@media (max-width: 767px) {
+  .page-header h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 479px) {
+  .page-header h6 {
+    span, .name {
+      display: none;
+    }
+  }
+}
 // @import "tom-select";
 // @include ts-caret;
 

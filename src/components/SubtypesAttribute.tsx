@@ -12,17 +12,19 @@ const subtypesOptions = subtypes.data.map<TomSelectOption>((subtype) => ({
 }))
 
 const populateCustomOptions = (options: TomSelectOption[], cardOptions: Card['subtypes']) => {
-  return cardOptions.reduce((updatedOptions, text) => {
+  return [...cardOptions].reduce((updatedOptions, text) => {
     const value = subtypeKey(text);
+
     if (options.find(o => o.value === value))
       return updatedOptions;
+
     return [
       ...updatedOptions, {
         value,
         text,
       }
     ]
-  }, options);
+  }, options).sort((a, b) => a.text.localeCompare(b.text));
 }
 
 type SubtypesAttributeProps = {
@@ -40,7 +42,7 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
       setOptions([...existingOptions, {
         value,
         text: data.text,
-      }]);
+      }].sort((a, b) => a.text.localeCompare(b.text)));
     }
   };
 
@@ -67,8 +69,8 @@ export function SubtypesAttribute(props: SubtypesAttributeProps) {
         <TomSelectWrapper
           id={attribute}
           value={card.subtypes}
-          options={options} 
-          onOptionAdd={onOptionAdd} 
+          options={options}
+          onOptionAdd={onOptionAdd}
           onChange={onChange}
         />
       </div>

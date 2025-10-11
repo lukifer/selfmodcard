@@ -1,6 +1,6 @@
-import { Show, createSignal } from 'solid-js';
+import { Show, createSignal, createMemo } from 'solid-js';
 
-import { Card, icons, imageUri } from '../models/Card';
+import { Card, CardKind, icons, imageUri } from '../models/Card';
 import { hasStrength, hasTrash } from './AttributesView';
 import { FitText } from '../components/FitText';
 import { miniMarkdown, paragraphize } from '../utils';
@@ -15,7 +15,10 @@ export const iconRegexes = Object.entries(icons).reduce((regexes, [icon, strs]: 
 export function iconify(content: string, cardname: string) {
   return iconRegexes.reduce((content, [icon, regex]) => (
     content.replace(regex, `<i class='icon icon-${icon}'></i>`)
-  ), content.replace(/ ->/g, '&rarr;').replace(/\[cardname\]/g, cardname));
+  ), content
+    .replace(/ ->/g, ' &rarr;')
+    .replace(/\[cardname\]/g, cardname)
+  );
 }
 
 const zoomIntensity = 1.03;
@@ -29,7 +32,7 @@ export const CardView = (props: {
   const [cardStartX, setCardStartX] = createSignal(0);
   const [cardStartY, setCardStartY] = createSignal(0);
   const [isDragging, setIsDragging] = createSignal(false);
-  
+
   function onMouseDown(ev: MouseEvent) {
     setLastX(ev.clientX);
     setLastY(ev.clientY);
@@ -80,6 +83,15 @@ export const CardView = (props: {
     card.scale = newScale;
   }
 
+  const nameMaxFontSize = createMemo(() => {
+    const largerFontSizes: CardKind[] = ['agenda', 'ice', 'identity'];
+
+    if (largerFontSizes.includes(card.kind))
+      return 18;
+
+    return 16;
+  });
+
   return (
     <div
       class={`card ${card.kind} ${card.faction} ${card.side} ${card.img ? 'has-image' : ''}`}
@@ -103,9 +115,13 @@ export const CardView = (props: {
         }}></div>
       </Show>
 
-      <div class="name">{ card.unique && card.kind !== 'identity' && '◆ ' }{ card.name }</div>
+      <FitText class="name" maxFontSize={nameMaxFontSize()} multiLine={false} widthOnly={true} content={() => [
+        card.unique && card.kind !== 'identity' ? '◆ ' : '',
+        card.name,
+      ].join('')}></FitText>
+
       <Show when={card.kind === 'identity'}>
-        <div class="subtitle">{ card.subtitle }</div>
+        <FitText class="subtitle" maxFontSize={14} multiLine={false} widthOnly={true} content={() => card.subtitle}></FitText>
       </Show>
       <div class={`price outline center ${['1', '11'].includes(`${card.price}`) ? 'one' : ''} ${`${card.price}`.length > 1 ? 'ten' : ''}`}>
         { card.price === '' ? 'X' : card.price }

@@ -2,7 +2,7 @@
   "name": "self-modifying-card-redux",
   "version": "1.0.0",
   "description": "Card creator For Null-Signal-era Netrunner",
-  "homepage": "https://lukifer.github.io/selfmodcard",
+  "homepage": "https://hack.themind.gg",
   "scripts": {
     "start": "vite",
     "dev": "vite",

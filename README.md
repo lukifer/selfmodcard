@@ -10,6 +10,9 @@ Fully Operational&trade;, but WIP/YMMV.
 - Improve template and font integration
 - Customizable render quality (currently 750x1050)
 - Image handling on mobile
+- Fix bug with alphabetizing of added subtypes
+- Convert side/factions into optgroup submenus
+- Upgrade renderer to html2canvas-pro or @html2canvas/html2canvas
 
 ## Install
 

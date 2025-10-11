@@ -4,7 +4,11 @@ export function capitalizeFirst(str: string, allCapsMax = 0) {
 }
 
 export function miniMarkdown(text: string): string {
-  return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\*(.*?)\*/g, '<i>$1</i>');
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+    .replace(/\*(.*?)\*/g, '<i>$1</i>')
+    .replace(/\-\-/g, '&ndash;')
+    ;
 }
 
 export function ucFirst(str: string) {

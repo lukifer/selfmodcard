@@ -60,6 +60,7 @@ export const TomSelectWrapper: Component<TomSelectProps> = (props) => {
       onChange: (values: string[]) => {
         tomSelectInstance.control_input.value = '';
         props.onChange?.([...values]);
+        tomSelectInstance.close();
       }
     });
 

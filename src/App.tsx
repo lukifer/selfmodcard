@@ -67,6 +67,7 @@ export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
 
 const App: Component = () => {
   const [imageData, setImageData] = createSignal('');
+  const [cardLoaded, setCardLoaded] = createSignal(false);
   const [compressedCardData, setCompressedCardData] = createSignal<string>('');
 
   const setFontSize = (val: string) => {
@@ -90,8 +91,7 @@ const App: Component = () => {
     if (!!searchParams.card) {
       const cardData = await cardDataFromQueryString(`${searchParams.card}`);
       Object.keys(cardData).forEach(k => {
-        // if (k === 'subtypes' && cardData[k]) console.log('query string subtypes: '+cardData[k].join(','));
-        card[k] = k === 'imgUrl' ? cardData[k].replace('hack.themind.gg', 'img.themind.gg') : cardData[k];
+        card[k] = cardData[k];
       });
     }
 
@@ -100,6 +100,7 @@ const App: Component = () => {
         card.img = dataUri;
       })
     }
+    setCardLoaded(true);
   });
 
   async function generateImage(): Promise<void> {
@@ -107,6 +108,7 @@ const App: Component = () => {
     try {
       const canvas: HTMLCanvasElement = await html2canvas(cardNode, {
         allowTaint: false,
+        backgroundColor: 'rgba(255, 255, 255, 0)'
       });
       setImageData(canvas.toDataURL('image/png'));
     } catch(err) {
@@ -125,7 +127,7 @@ const App: Component = () => {
     // const cardJson = JSON.stringify(cardData).replace('http://hack', 'https://hack').replace('2323', '2332');
     const zippedCard = await zip(cardJson);
     await navigator.clipboard.writeText(location.origin + location.pathname + '?card=' + zippedCard);
-    // await navigator.clipboard.writeText('https://lukifer.github.io' + location.pathname + '?card=' + zippedCard);
+    // await navigator.clipboard.writeText('https://hack.themind.gg' + location.pathname + '?card=' + zippedCard);
     setCompressedCardData(zippedCard);
   }
 
@@ -144,13 +146,19 @@ const App: Component = () => {
           <h1>
             Netrunner Card Creator
           </h1>
-          <h6>Under development; adapted from <a href="http://cardcreator.grndl.net/">GRNDL Card Creator</a> by <a href="https://github.com/yonbergman/self-modifying-card">@yonbergman</a></h6>
+          <h6>
+            <span>by&nbsp;</span>
+            <a class="github" href="https://github.com/lukifer/selfmodcard" target="_blank">
+              <img src="/img/github.svg" width="16" height="16" alt="GitHub" />
+              <span class="name">Lukifer</span>
+            </a>
+          </h6>
         </div>
         <div class="container">
           <div class="row">
             <div class="col-sm-7 form-view">
               <form class="form-horizontal" role="form">
-                <AttributesView card={card} />
+                {cardLoaded() ? <AttributesView card={card} /> : null}
               </form>
             </div>
             <div class="col-sm-5 card-view">
@@ -211,6 +219,14 @@ const App: Component = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <hr />
+          <div>
+            <div class="templates">Card templates by <a href="https://www.reddit.com/r/Netrunner/comments/yuapf2/mnemics_custom_netrunner_cards_1024_custom_cards/" target="_blank">MNeMiC</a></div>
+            <div class="original">Adapted from <a href="http://cardcreator.grndl.net/">GRNDL Card Creator</a> by <a href="https://github.com/yonbergman/self-modifying-card" target="_blank">yonbergman</a></div>
           </div>
         </div>
 

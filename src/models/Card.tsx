@@ -5,10 +5,10 @@ import { capitalizeFirst } from '../utils';
 
 export const CARD_LOCAL_STORAGE_KEY = 'card';
 
-export const corpFactions = ['neutral', 'weyland', 'haas', 'jinteki', 'nbn'] as const;
+export const corpFactions = ['neutral', 'haas', 'jinteki', 'nbn', 'weyland'] as const;
 export const runnerFactions = ['neutral', 'anarch', 'criminal', 'shaper'] as const;
-export const corpKinds = ['agenda', 'asset', 'operation', 'upgrade', 'ice', 'identity'] as const;
-export const runnerKinds = ['event', 'hardware', 'program', 'resource', 'identity'] as const;
+export const corpKinds = ['agenda', 'asset', 'ice', 'identity', 'operation', 'upgrade'] as const;
+export const runnerKinds = ['event', 'hardware', 'identity', 'program', 'resource'] as const;
 
 export type Side = 'corp' | 'runner';
 export type Faction = (typeof corpFactions)[number] | (typeof runnerFactions)[number];
