@@ -126,7 +126,7 @@ export const createCardStore = (attributes: Partial<Card>, onChange: () => void)
     influence: 1,
     mu: 1,
     minDeckSize: 45,
-    subtypes: ['Bioroid', 'Code Gate'],
+    subtypes: ['Code Gate', 'Bioroid'],
     text: [
       '**Lose [click]**: Break 1 subroutine. Only the Runner may use this ability.',
       '',
