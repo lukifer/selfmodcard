@@ -107,7 +107,9 @@ const App: Component = () => {
   async function generateImage(): Promise<void> {
     const cardNode = document.querySelector<HTMLElement>('.card');
     try {
+      setImageData('updating');
       const canvas: HTMLCanvasElement = await html2canvas(cardNode, {
+        // foreignObjectRendering: true,
         allowTaint: false,
         backgroundColor: 'rgba(255, 255, 255, 0)'
       });
@@ -185,12 +187,12 @@ const App: Component = () => {
                 </Show>
               </div>
               <div class="card-controls">
-                <button type="button" class="generate-image btn btn-default btn-md" onClick={generateImage}>
+                <button type="button" class={`generate-image btn btn-default btn-md ${imageData() === 'updating' ? 'disabled' : ''}`} onClick={generateImage}>
                   <span class="glyphicon glyphicon-play"></span>
                   <span>{imageData() ? 'Update' : 'Build'} PNG</span>
                 </button>
                 <a
-                  class={`save-image btn btn-default btn-md ${imageData() ? '' : 'disabled'}`}
+                  class={`save-image btn btn-default btn-md ${['', 'updating'].includes(imageData()) ? 'disabled' : ''}`}
                   download={cardDownloadName()}
                   href={imageData()}
                 >
