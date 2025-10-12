@@ -382,6 +382,11 @@ footer {
   }
   .name {
     transform: translateY(-50%);
+    .textFitted {
+      display: inline-block;
+      color: rgb(1, 1, 1);
+      min-height: 1rem;
+    }
     // border-right: 1px solid gray; // debugging
   }
   .name, .subtitle {
