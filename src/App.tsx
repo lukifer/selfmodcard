@@ -2,6 +2,8 @@ import './App.scss';
 import '@thisbeyond/solid-select/style.css';
 
 import html2canvas from 'html2canvas';
+// import html2canvaspro from 'html2canvas-pro';
+// import html2canvas2 from '@html2canvas/html2canvas';
 import { parse } from 'search-params'
 // import onrjson from './onr.json'
 
@@ -35,8 +37,7 @@ async function cardDataFromQueryString(cardData: string): Promise<Partial<Card>>
 export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
   const img = document.createElement('img');
   img.crossOrigin = 'anonymous';
-  // img.src = url.replace('hack.themind.gg', 'img.themind.gg');
-  img.src = url;
+  img.src = url.replace('hack.themind.gg', 'img.themind.gg');
 
   img.onload = () => {
     const canvas = document.createElement('canvas');
@@ -108,6 +109,18 @@ const App: Component = () => {
     const cardNode = document.querySelector<HTMLElement>('.card');
     try {
       setImageData('updating');
+      // const canvas2: HTMLCanvasElement = await html2canvas2(cardNode, {
+      //   // foreignObjectRendering: true,
+      //   allowTaint: false,
+      //   backgroundColor: 'rgba(255, 255, 255, 0)'
+      // });
+      // setImageData(canvas2.toDataURL('image/png'));
+      // const canvaspro: HTMLCanvasElement = await html2canvaspro(cardNode, {
+      //   // foreignObjectRendering: true,
+      //   allowTaint: false,
+      //   backgroundColor: 'rgba(255, 255, 255, 0)'
+      // })
+      // setImageData(canvaspro.toDataURL('image/png'));
       const canvas: HTMLCanvasElement = await html2canvas(cardNode, {
         // foreignObjectRendering: true,
         allowTaint: false,

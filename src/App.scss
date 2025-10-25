@@ -151,6 +151,7 @@ label {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  padding-left: 1px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -194,6 +195,9 @@ label {
 }
 .icon-mu:before {
   content: "\e610";
+}
+.icon-mu {
+  padding-left: 2px;
 }
 .icon-1mu:before {
   content: "\e60a";
@@ -686,6 +690,11 @@ footer {
       background-position: 0 -10px;
       background-repeat: no-repeat;
       padding-left: 46px;
+      z-index: 100;
+      overflow: visible;
+    }
+    .type span {
+      z-index: 200;
     }
     .main-content {
       width: 69.5%;
