@@ -37,7 +37,7 @@ async function cardDataFromQueryString(cardData: string): Promise<Partial<Card>>
 export function loadImageAsDataUri(url: string, onload: (str: string) => void) {
   const img = document.createElement('img');
   img.crossOrigin = 'anonymous';
-  img.src = url.replace('hack.themind.gg', 'img.themind.gg');
+  img.src = url.replace('hack.themind.gg:2332', 'img.themind.gg:2332');
 
   img.onload = () => {
     const canvas = document.createElement('canvas');

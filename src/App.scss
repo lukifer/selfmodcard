@@ -385,13 +385,17 @@ footer {
     width: 10%;
   }
   .name {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 25px;
+    transform: translateY(-50%);
+    // display: flex;
+    // align-items: center;
+    // justify-content: flex-start;
+    // min-height: 25px;
+    overflow: visible;
+    z-index: 100;
 
     .textFitted {
       display: inline-block;
+      z-index: 200;
     }
     // border-right: 1px solid gray; // debugging
   }
@@ -474,12 +478,13 @@ footer {
       top: 2.1%;
     }
     .name {
-      top: 4%;
+      // top: 4%;
+      top: 6.6%;
       left: 7.4%;
       min-width: 75.3%;
       max-width: 75.3%;
       white-space: nowrap;
-      overflow: hidden;
+      // overflow: hidden;
     }
     .price {
       left: 90.2%;
@@ -517,7 +522,8 @@ footer {
 
   &.operation {
     .name {
-      top: 2.9%;
+      // top: 2.9%;
+      top: 5.4%;
       left: 24%;
       min-width: 74%;
       max-width: 74%;
@@ -563,7 +569,8 @@ footer {
 
   &.upgrade {
     .name {
-      top: 50.1%;
+      // top: 50.1%;
+      top: 52.5%;
       left: 9%;
       font-weight: 600;
       min-width: 81%;
@@ -607,7 +614,8 @@ footer {
 
   &.asset {
     .name {
-      top: 50.1%;
+      // top: 50.1%;
+      top: 52.5%;
       left: 9.5%;
       min-width: 87%;
       max-width: 87%;
@@ -653,7 +661,8 @@ footer {
 
   &.ice {
     .name {
-      top: 3.3%;
+      // top: 3.3%;
+      top: 5.8%;
       left: 23.8%;
       max-width: 70%;
       min-width: 70%;
@@ -714,7 +723,8 @@ footer {
 
   &.event {
     .name {
-      top: 2.2%;
+      // top: 2.2%;
+      top: 4.7%;
       left: 22.3%;
       max-width: 72%;
       min-width: 72%;
@@ -751,7 +761,8 @@ footer {
 
   &.hardware {
     .name {
-      top: 50.6%;
+      // top: 50.6%;
+      top: 53%;
       left: 19.4%;
       max-width: 73%;
       min-width: 73%;
@@ -791,7 +802,8 @@ footer {
 
   &.program {
     .name {
-      top: 46.5%;
+      // top: 46.5%;
+      top: 48.9%;
       left: 4.2%;
       max-width: 75%;
       min-width: 75%;
@@ -847,7 +859,8 @@ footer {
 
   &.resource {
     .name {
-      top: 2.2%;
+      // top: 2.2%;
+      top: 4.7%;
       left: 21.8%;
       max-width: 76%;
       min-width: 76%;
@@ -907,7 +920,8 @@ footer {
     }
     .name {
       left: 15.5%;
-      top: 5.2%;
+      // top: 5.2%;
+      top: 7.9%;
       max-width: 72%;
       min-width: 72%;
     }
@@ -956,7 +970,8 @@ footer {
     &.runner {
       .name {
         left: 25%;
-        top: 3%;
+        // top: 3%;
+        top: 5.4%;
         max-width: 65%;
         min-width: 65%;
       }
