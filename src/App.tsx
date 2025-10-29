@@ -124,7 +124,8 @@ const App: Component = () => {
       const canvas: HTMLCanvasElement = await html2canvas(cardNode, {
         // foreignObjectRendering: true,
         allowTaint: false,
-        backgroundColor: 'rgba(255, 255, 255, 0)'
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+        scale: 2,
       });
       setImageData(canvas.toDataURL('image/png'));
     } catch(err) {
