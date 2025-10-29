@@ -86,6 +86,7 @@ export function TextAttribute<T extends CardSelectAttribute>(props: TextAttribut
         <Show when={props.textarea}>
           <textarea 
             class="form-control"
+            id={attribute}
             rows={rows}
             ref={textareaRef} 
             onKeyUp={updateContent} 

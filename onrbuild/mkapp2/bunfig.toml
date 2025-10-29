@@ -1,0 +1,5 @@
+[install]
+# not installing packages; present for completeness
+
+[run]
+# default environment is fine

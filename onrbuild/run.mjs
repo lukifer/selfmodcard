@@ -2,6 +2,7 @@
 // run.mjs
 import fs from "node:fs";
 import path from "node:path";
+import { execSync } from "node:child_process";
 import { parse } from "csv-parse";
 import { firefox, webkit, chromium } from "playwright";
 
@@ -22,11 +23,15 @@ const SHEET = flags.sheet || "";                 // Google Sheet export CSV URL
 
 // Behavior flags
 // NOTE: Review/approval is ON by default. Disable with --auto (optionally add --headless).
-const APPROVAL = !("--auto" in flags);
+const APPROVAL = !("auto" in flags);
+// const APPROVAL = false;
+// console.log('APPROVAL', APPROVAL);
+// console.log('flags', flags);
 const BROWSER = (flags.browser || process.env.BROWSER || "firefox").toLowerCase(); // firefox|webkit|chromium
-const HEADLESS = ("--auto" in flags) || !!flags.headless;  // headless if auto; override with --headless
+const HEADLESS = ("auto" in flags) || !!flags.headless;  // headless if auto; override with --headless
 const OUTDIR = flags.outdir || "output";
 const ORIGDIR = flags.originals || "originals"; // originals directory
+const JSON_OUT = flags.json || flags["json-out"] || "cards.json"; // output JSON file
 
 // Find/replace (single pair fallback)
 const FIND = flags.find || "foo";
@@ -69,6 +74,13 @@ function sanitizeFilename(s, fallback = "file") {
 function stemOf(filename) {
   const i = filename.lastIndexOf(".");
   return i > 0 ? filename.slice(0, i) : filename;
+}
+function stripExt(name) {
+  const i = name.lastIndexOf(".");
+  return i >= 0 ? name.slice(0, i) : name;
+}
+function toRelUnix(p, base) {
+  return path.relative(base, p).split(path.sep).join("/");
 }
 
 /** -------------------- READ URLS -------------------- **/
@@ -374,10 +386,17 @@ async function readMeta(page) {
       const el = document.getElementById(id);
       return el ? String(el.value ?? "").trim() : "";
     }
+    function subtypes() {
+      const items = document.querySelectorAll('.ts-control .item') ?? [];
+      return [...items].map(el => el.childNodes[0].textContent ?? el.innerText);
+    }
     return {
+      name: valOfInput("name"),
       side: (valOfSelect("side") || "").toLowerCase(),
       faction: (valOfSelect("faction") || "").toLowerCase(),
       kind: (valOfSelect("kind") || "").toLowerCase(),
+      subtypes: subtypes(),
+      text: valOfInput("text"),
       imageUrl: valOfInput("image_url")
     };
   });
@@ -421,10 +440,10 @@ async function saveOriginalImage(imageUrl, baseDir, subdirParts, preferredStem) 
 
     const filePath = path.join(subdir, safeStem + ext);
     fs.writeFileSync(filePath, buf);
-    return true;
+    return filePath;
   } catch (e) {
     console.warn(`   ↳ originals save failed: ${(e && e.message) || e}`);
-    return false;
+    return null;
   }
 }
 
@@ -457,11 +476,13 @@ function ensurePngExt(name) {
   const context = await browser.newContext({ acceptDownloads: true, viewport: { width: 1200, height: 900 }});
   const page = await context.newPage();
 
+  const cards = [];
   let quitRequested = false;
 
   for (let i = 0; i < urls.length; i++) {
+  // for (let i = 0; i < 10; i++) {
     if (quitRequested) break;
-    const url = urls[i];
+    const url = urls[i].replace("https://hack.themind.gg", "http://localhost:3000");
     console.log(`\n[${i + 1}/${urls.length}] ${url}`);
     try {
       await page.goto(url, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
@@ -516,9 +537,46 @@ function ensurePngExt(name) {
       fs.writeFileSync(outFile, buf);
       console.log(`✔ Saved: ${outFile}`);
 
+      // Convert PNG to JPG using ffmpeg (web-optimized quality)
+      const jpgFile = outFile.replace(/\.png$/i, '.jpg');
+      execSync(`ffmpeg -i "${outFile}" -q:v 5 "${jpgFile}" -y`, { stdio: 'inherit' });
+      console.log(`✔ Converted to JPG: ${jpgFile}`);
+
       // Originals: MUST match the same filename base, only extension differs.
       const preferredStem = stemOf(base); // e.g., "My Card__slug"
-      await saveOriginalImage(meta.imageUrl, ORIGDIR, subPathParts, preferredStem);
+      const filteredImageUrl = meta.imageUrl.replace('_edit.', '.');
+      const originalImagePath = await saveOriginalImage(filteredImageUrl, ORIGDIR, subPathParts, preferredStem);
+
+      let originalJpgFile = null;
+      if (originalImagePath && /\.png$/i.test(originalImagePath)) {
+        originalJpgFile = originalImagePath.replace(/\.png$/i, '.jpg');
+        execSync(`ffmpeg -i "${originalImagePath}" -q:v 5 "${originalJpgFile}" -y`, { stdio: 'inherit' });
+        console.log(`✔ Converted original to JPG: ${originalJpgFile}`);
+      }
+
+      // Add card to JSON array
+      if (originalImagePath || originalJpgFile) {
+        const backPath = originalJpgFile || originalImagePath;
+        const relFront = toRelUnix(path.resolve(jpgFile), path.resolve(OUTDIR));
+        const relBack = toRelUnix(path.resolve(backPath), path.resolve(ORIGDIR));
+        const filename = path.basename(jpgFile);
+        const baseName = stripExt(filename).replace(/[-_]/g, " ");
+
+        const key = [side, faction, kind, stripExt(filename).toLowerCase().replace(/\s+/g, "-")].join("_");
+
+        cards.push({
+          id: key,
+          name: meta.name,
+          side,
+          faction,
+          type: kind,
+          subtypes: meta.subtypes,
+          text: meta.text,
+          front: `./${OUTDIR}/${relFront}`,
+          back: `./${ORIGDIR}/${relBack}`
+        });
+      }
+
     } catch (err) {
       const msg = (err && err.message) || String(err);
       if (msg === "Quit requested") break;
@@ -528,6 +586,12 @@ function ensurePngExt(name) {
   }
 
   await browser.close();
+  
+  if (cards.length > 0) {
+    fs.writeFileSync(JSON_OUT, JSON.stringify(cards, null, 2));
+    console.log(`✅ Wrote ${cards.length} cards to ${JSON_OUT}`);
+  }
+  
   console.log("\nDone.");
 })().catch(e => {
   console.error(e);

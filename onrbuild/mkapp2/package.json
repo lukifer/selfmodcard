@@ -1,0 +1,15 @@
+{
+    "name": "onr",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "clean": "rm -rf dist",
+        "build": "bun run build.ts",
+        "dev": "bun run server.ts",
+        "devold": "(bun run --watch build.ts) & (bun run server.ts)",
+        "serve": "bun run server.ts"
+    },
+    "devDependencies": {
+        "bun-types": "^1.3.1"
+    }
+}
