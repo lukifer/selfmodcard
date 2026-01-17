@@ -22,7 +22,6 @@ header { position: sticky; top:0; z-index: 2000; background: #141414; border-bot
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; max-width: 1400px; margin: 0 auto; }
 .left, .right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 select { background:#1b1b1b; color:#eee; border:1px solid #333; padding:6px 8px; border-radius:8px; }
-input[type=range] { width: 120px; }
 img { user-select: none; }
 
 #head {
@@ -173,7 +172,20 @@ main {
 }
 
 .zoomwrap { display: inline-block; margin-left: 0.5em; }
-input[type=range] { display: inline-block; width: 120px; position: relative; top: 3px; }
+input[type=range] {
+  display: inline-block;
+  height: 20px;
+  width: 120px;
+  position: relative;
+  top: 3px;
+}
+/* hack for Safari */
+@supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: linear-gradient(#888, #888) center / 100% 2px no-repeat;
+  }
+}
+
 
 .zoomwrap button {
   position: relative;
@@ -186,6 +198,7 @@ input[type=range] { display: inline-block; width: 120px; position: relative; top
   border: none;
   padding: 0;
   font: inherit;
+  font-size: 1em !important;
   text-align: center;
   cursor: pointer;
   outline: inherit;
@@ -432,7 +445,7 @@ body.medium-zoom--opened {
   }
   .about-inner {
     width: 364px;
-    padding: 0.5em 1em;
+    padding: 0.5em 0 0.5em 1em;
   }
   .about-inner h1 {
     font-size: 23px;
