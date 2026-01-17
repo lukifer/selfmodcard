@@ -29,8 +29,8 @@ const APPROVAL = !("auto" in flags);
 // console.log('flags', flags);
 const BROWSER = (flags.browser || process.env.BROWSER || "firefox").toLowerCase(); // firefox|webkit|chromium
 const HEADLESS = ("auto" in flags) || !!flags.headless;  // headless if auto; override with --headless
-const OUTDIR = flags.outdir || "output";
-const ORIGDIR = flags.originals || "originals"; // originals directory
+const OUTDIR = flags.outdir || "front";
+const ORIGDIR = flags.originals || "back"; // originals directory
 const JSON_OUT = flags.json || flags["json-out"] || "cards.json"; // output JSON file
 
 // Find/replace (single pair fallback)
@@ -424,9 +424,18 @@ async function saveOriginalImage(imageUrl, baseDir, subdirParts, preferredStem) 
       return true;
     }
 
-    // Otherwise fetch
-    const res = await fetch(imageUrl);
-    if (!res.ok) throw new Error(`fetch ${imageUrl} -> ${res.status}`);
+    // Otherwise fetch with retry
+    let res;
+    while (true) {
+      try {
+        res = await fetch(imageUrl);
+        if (res.ok) break;
+        throw new Error(`fetch ${imageUrl} -> ${res.status}`);
+      } catch (err) {
+        console.log(`⚠ Fetch failed for ${imageUrl}, retrying in 10 seconds...`);
+        await new Promise(resolve => setTimeout(resolve, 10000));
+      }
+    }
     const arrbuf = await res.arrayBuffer();
     const buf = Buffer.from(arrbuf);
 
@@ -480,7 +489,6 @@ function ensurePngExt(name) {
   let quitRequested = false;
 
   for (let i = 0; i < urls.length; i++) {
-  // for (let i = 0; i < 10; i++) {
     if (quitRequested) break;
     const url = urls[i].replace("https://hack.themind.gg", "http://localhost:3000");
     console.log(`\n[${i + 1}/${urls.length}] ${url}`);
@@ -539,43 +547,48 @@ function ensurePngExt(name) {
 
       // Convert PNG to JPG using ffmpeg (web-optimized quality)
       const jpgFile = outFile.replace(/\.png$/i, '.jpg');
-      execSync(`ffmpeg -i "${outFile}" -q:v 5 "${jpgFile}" -y`, { stdio: 'inherit' });
+      execSync(`ffmpeg -i "${outFile}" -q:v 5 "${jpgFile}" -y`, { stdio: 'ignore' });
       console.log(`✔ Converted to JPG: ${jpgFile}`);
+      execSync(`mv "${outFile}" ./trash/output/`, { stdio: 'ignore' });
 
       // Originals: MUST match the same filename base, only extension differs.
       const preferredStem = stemOf(base); // e.g., "My Card__slug"
-      const filteredImageUrl = meta.imageUrl.replace('_edit.', '.');
+      const filteredImageUrl = meta.imageUrl.replace('_edit.', '.').replace('hack.themind.gg:2332', 'img.themind.gg:2332');
       const originalImagePath = await saveOriginalImage(filteredImageUrl, ORIGDIR, subPathParts, preferredStem);
 
       let originalJpgFile = null;
-      if (originalImagePath && /\.png$/i.test(originalImagePath)) {
-        originalJpgFile = originalImagePath.replace(/\.png$/i, '.jpg');
-        execSync(`ffmpeg -i "${originalImagePath}" -q:v 5 "${originalJpgFile}" -y`, { stdio: 'inherit' });
-        console.log(`✔ Converted original to JPG: ${originalJpgFile}`);
+      if (originalImagePath) {
+        const originalDir = path.dirname(originalImagePath);
+        const originalStem = stemOf(path.basename(originalImagePath));
+        originalJpgFile = path.join(originalDir, `${originalStem}_750.jpg`);
+        execSync(`ffmpeg -i "${originalImagePath}" -vf scale=750:1050 -q:v 5 "${originalJpgFile}" -y`, { stdio: 'ignore' });
+        console.log(`✔ Converted original to JPG (750x1050): ${originalJpgFile}`);
+        execSync(`mv "${originalImagePath}" ./trash/originals/`, { stdio: 'ignore' });
+      }
+      else {
+        console.log(`ERROR! Couldn't retrieve ${filteredImageUrl}`);
       }
 
       // Add card to JSON array
-      if (originalImagePath || originalJpgFile) {
-        const backPath = originalJpgFile || originalImagePath;
-        const relFront = toRelUnix(path.resolve(jpgFile), path.resolve(OUTDIR));
-        const relBack = toRelUnix(path.resolve(backPath), path.resolve(ORIGDIR));
-        const filename = path.basename(jpgFile);
-        const baseName = stripExt(filename).replace(/[-_]/g, " ");
+      const backPath = originalJpgFile ?? originalImagePath ?? '';
+      const relFront = toRelUnix(path.resolve(originalImagePath ?? jpgFile), path.resolve(OUTDIR));
+      const relBack = toRelUnix(path.resolve(originalJpgFile ?? backPath), path.resolve(ORIGDIR));
+      const filename = path.basename(jpgFile);
+      const baseName = stripExt(filename).replace(/[-_]/g, " ");
 
-        const key = [side, faction, kind, stripExt(filename).toLowerCase().replace(/\s+/g, "-")].join("_");
+      const key = [side, faction, kind, stripExt(filename).toLowerCase().replace(/\s+/g, "-")].join("_");
 
-        cards.push({
-          id: key,
-          name: meta.name,
-          side,
-          faction,
-          type: kind,
-          subtypes: meta.subtypes,
-          text: meta.text,
-          front: `./${OUTDIR}/${relFront}`,
-          back: `./${ORIGDIR}/${relBack}`
-        });
-      }
+      cards.push({
+        id: key,
+        name: meta.name,
+        side,
+        faction,
+        kind,
+        subtypes: meta.subtypes,
+        text: meta.text,
+        front: `./${OUTDIR}/${relFront}`,
+        back: `./${ORIGDIR}/${relBack}`
+      });
 
     } catch (err) {
       const msg = (err && err.message) || String(err);
