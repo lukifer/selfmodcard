@@ -119,7 +119,7 @@ let zoom: Zoom;
 
 export async function bootstrap({ van }: { van: Van }) {
 
-  const { div, input, select, option, optgroup, img, main, h1, h3, h5, header, a, b, i, p, br, span, button, ul, li } = van.tags;
+  const { div, input, select, option, optgroup, img, main, h1, h3, h5, h6, header, a, b, i, p, br, span, button, ul, li } = van.tags;
 
   function App(cards: Card[]) {
 
@@ -258,6 +258,7 @@ export async function bootstrap({ van }: { van: Van }) {
       div({ class: "bar" },
         div({ class: "left" },
           div(
+            { class: "onrselect" },
             select({ onchange: onFaceChange },
               option({ value: "front", selected: face.val === "front" }, "Re:Factor 2096"),
               option({ value: "back",  selected: face.val === "back" }, "ONR 1996"),
@@ -265,17 +266,17 @@ export async function bootstrap({ van }: { van: Van }) {
             ),
           ),
           div({ class: "zoomwrap" },
-            button({ onclick: () => changeZoom(-0.1) }, '➖'),
+            button({ onclick: () => changeZoom(-0.05) }, '➖'),
             input({
               id: "zoomrange",
               type: "range",
               min: 0.5,
-              max: 1.5,
+              max: 1.1,
               step: 0.05,
               value: 0.8,
               oninput: onZoom,
             }),
-            button({ onclick: () => changeZoom(0.1) }, '➕'),
+            button({ onclick: () => changeZoom(0.05) }, '➕'),
           ),
           a({
             class: "tooltip bottom bottom-download",
@@ -335,6 +336,9 @@ export async function bootstrap({ van }: { van: Van }) {
       );
     })
 
+    const eml = (x: string) => x.replace(" at ", "@").replace(" dot ", ".");
+    const mkemail = (x: string) => a({ href: `mailto:${eml(x)}` }, eml(x));
+
     return (
       div({ id: "app" },
         // div({ id: "head" },
@@ -354,21 +358,23 @@ export async function bootstrap({ van }: { van: Van }) {
           div({ class: "about" },
             div({ class: "about-inner" },
               h1("Re:Factor 2096"),
-              h5("v0.99: Draft release: all details subject to change."),
-              p(b("Re:Factor"), " reimagines Richard Garfield's original 1996 Netrunner as a new set of ",
+              h6("a labor of love by ", a({ href: "https://github.com/lukifer", target: "_blank" }, "lukifer")),
+              h5("v0.99: Draft release: everything subject to change."),
+              p(b("Re:Factor"), " reimagines Richard Garfield's original 1996 Netrunner CCG as a new set of ",
               () => span(`${cards.length}`),
-              " cards for the 21st-century game, complete with factions and influence, and rules-compatible with cards from FFG & Null Signal Games. ",
+              " cards for the 21st-century LCG, complete with factions and influence, and rules-compatible with cards from FFG or ",
+              a({ href: "https://nullsignal.games/", target: "_blank" }, "Null Signal Games"), ". ",
               i("(No affiliation.)")),
-              p("Rules and functionality have been adapted as-is, without consideration for balance (other than assigning influence). Were this a real set, many cards would probably be banned in competitive play."),
+              p("Card mechanics have been adapted as-is, without consideration for balance or power level (other than assigning influence). Were this a real set, many cards would likely be banned for competitive play."),
               p("Every card is self-contained, explaining any custom rules in its text (but see clarifications below)."),
               p({ class: "small" },
                 "Card images generated with ",
                 a({ href: "https://hack.themind.gg", target: "_blank" }, "Self-Modifying Card"),
                 " using templates by ",
                 a({ href: "https://www.reddit.com/r/Netrunner/comments/yuapf2/mnemics_custom_netrunner_cards_1024_custom_cards/", target: "_blank" }, "MNeMiC"),
-                ". ONR art adapted from ",
+                ". ONR card art adapted from ",
                 a({ href: "https://www.reddit.com/r/Netrunner/comments/hu282l/original_netrunner_mpcformatted/", target: "_blank" }, "kj4860's"),
-                " AI Upscales. Any copyrighted content is used under Fair Use. Published under a ",
+                " AI Upscales. Any copyrighted content is used under Fair Use. Published under ",
                 a({ href: "https://creativecommons.org/publicdomain/zero/1.0/", target: "_blank" }, "Creative Commons Zero"), " and the ",
                 a({ href: "https://researchenterprise.org/2013/12/06/the-woody-guthrie-public-license/", target: "_blank" }, "Woody Guthrie Public License"),
                 " (the public domain)."
@@ -381,24 +387,30 @@ export async function bootstrap({ van }: { van: Van }) {
                   " All mechanics and rules are printed onto cards (sometimes as reminder text). Other ONR rules differences (such as purging at any time by forfeiting future clicks) do not apply."
                 ),
                 li(b("Q: What's a Psi Trace?"),
-                  // br(), "A: In Original Netrunner, traces were blind bids, with \"Trace[X]\" setting a ", i("ceiling"), " of X on the trace, rather than a floor. ",
-                  p("A: In Original Netrunner, traces were blind bids, with \"Trace[X]\" setting a ", i("ceiling"), " of X on the trace, rather than a floor. "),
-                  p(b("Re:Factor"),
-                  " has adapted this to a new mechanic, called a \"Psi Trace\". (For card effect purposes, a Psi Trace is considered both a trace and a psi game.)"),
-                  p("The runner will need a ", b("Link"), " card in order to bid on a Psi Trace. If the Runner cannot bid, their Base Link (from their identity, and any installed cards) must still be overcome by the Corp; though note that for Psi Traces, unlike normal traces, the Corp wins ties.")
+                  br(), "A: In Original Netrunner, traces were blind bids, with \"Trace[X]\" setting a ", i("ceiling"), " of X on the trace, rather than a floor. ",
+                  div({ class: "spacer" }, " "),
+                  b("Re:Factor"), " has adapted this to a new mechanic, called a \"Psi Trace\". (For card effect purposes, a Psi Trace is considered both a trace and a psi game.)",
+                  div({ class: "spacer" }, " "),
+                  "The runner will need a ", b("Link"), " card in order to bid on a Psi Trace. If the Runner cannot or does not bid, their base link (printed on their identity, plus bonuses from installed cards) must still be overcome by the Corp. Note that for Psi Traces, unlike normal traces, the Corp wins ties."
                 ),
                 li(
                   b("Q: Can the Runner use Link card abilities during normal (non-psi) traces?"),
-                  br(), "Yes."
+                  br(), "Yes. After the Corp has paid to set the trace, the Runner can use any Link card abilities, in addition to paying credits normally. Setting base link can be considered to overwrite the printed link on the Runner's identity; any passive link bonuses (such as ",
+                  i("Cybertrooper Talut"), ") will continue to apply."
                 ),
                 li(
                   b("Q: Are Hidden resources considered to be resources while facedown?"),
-                  br(), "Yes, and the Corp can trash them normally (such as when the runner is tagged). This is only the case when the runner has announced they are installing a face-down Hidden resource; if the same card is installed through a different card effect, such as Apex, it is still considered a blank generic card."
+                  br(), "Yes, and the Corp can trash them normally (such as when the runner is tagged). This is only the case when the runner has announced they are installing a face-down Hidden resource; if the same card is installed through a different card effect, such as Apex, it is still considered a blank generic card; however, that card can still be flipped face-up during a paid ability window, or per any custom timing rules printed on the card."
                 ),
                 li(
-                  b("Q: Do the Runner win the game after acquiring 7 bad publicity?"),
+                  b("Q: What is the install cost of Hidden resources?"),
+                  br(), "All resources with subtype Hidden have an install cost of 0, which must still be \"paid\". So for instance, ",
+                  i("Scarcity of Resources"), " would require the Runner to pay 2 credits to install a Hidden resource face-down. However, this install cost is not paid when turning a Hidden resource face-up."
+                ),
+                li(
+                  b("Q: Does the Runner win the game after acquiring 7 bad publicity?"),
                   br(), "Only if card text says so. In ONR, this was the only effect of BP; in ",
-                  b("Re:Factor"), ", the text to win after acquiring 7 BP has been added to the specific cards."
+                  b("Re:Factor"), ", the text to win after acquiring 7 BP has been added to those specific cards."
                 ),
                 li(
                   b("Q: Why is $CARD in $FACTION?"),
@@ -406,22 +418,26 @@ export async function bootstrap({ van }: { van: Van }) {
                 ),
                 li(
                   b("Q: Why is $SUBTYPE added / missing?"),
-                  br(), "Some subtypes were added to maintain consistency (such as \"Observer\" to ICE which applies tags). Some subtypes were removed when they had no rules interactions (\"Sword\")."
+                  br(), "Some subtypes were added to maintain consistency (such as \"Observer\" to ICE which applies tags). Some subtypes were removed when they had no rules interactions (such as ",
+                  i("Sword"), ")."
                 ),
                 li(
                   b("Q: I have questions / feedback / corrections / Opinions™️!"),
-                  br(), "All feedback is welcome, to luke at lukifer dot dev. (I reserve the right to not accept suggested changes though. :) )"
+                  br(), "All feedback is extremely welcome, to ",
+                  () => mkemail("refactor at themind dot gg"),
+                  "! (I reserve the right to not accept every suggested change. 🙂)"
                 ),
                 li(
                   b("Q: Where can I get raw card data?"),
                   br(), "Card data is available as ", a({ href: "/assets/data/cards.json", download: true}, "JSON"),
-                  ", though currently lacking numeric details like strength and cost (improvements coming soon)."
+                  ", though currently lacking numeric details like strength and cost (to be corrected soon)."
                 ),
                 li(
                   b("Q: Why would you do this?!"),
                   br(), "A: I don't understand the question."
                 ),
-              )
+              ),
+              br(),
             )
           )
         ),
